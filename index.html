@@ -3,364 +3,494 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pobre Maria — Gastronomia com Identidade</title>
+<title>Pobre Maria — Família Marques Silva</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 C16 2 20 8 18 13 C22 9 23 5 23 5 C23 5 28 12 26 19 C25 23 22 26 19 28 C20 26 20 23 18 22 C18 25 16 27 14 28 C10 26 7 22 7 18 C7 13 10 9 12 7 C11 11 12 14 14 15 C13 10 14 5 16 2Z' fill='%23C8A96E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant:ital,wght@0,300;0,600;0,700;1,300;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #F7F3EE;
-    --bg2: #EFE9E0;
-    --ink: #1C1410;
-    --ink2: #6B5B4E;
-    --ink3: #A0907F;
-    --accent: #8B3A2A;
-    --accent2: #C4603A;
-    --line: rgba(28,20,16,.12);
-    --green: #3B6D11;
-    --green-bg: #EAF3DE;
-    --warn: #993C1D;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
+:root {
+  --bg:     #0E0C09;
+  --bg2:    #161310;
+  --bg3:    #1E1A15;
+  --gold:   #C8A96E;
+  --gold2:  #A8893E;
+  --gold3:  #E8C98E;
+  --ash:    #7A6A55;
+  --ash2:   #5A4A35;
+  --cream:  #EDE0C8;
+  --cream2: #D4C4A4;
+  --line:   rgba(200,169,110,.12);
+  --line2:  rgba(200,169,110,.06);
+  --warn:   #B85A20;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--cream2);
+  font-family: 'EB Garamond', serif;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
 
-  /* ── HEADER ── */
-  header {
-    border-bottom: 1px solid var(--line);
-    padding: 2.5rem 2rem 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .site-eyebrow {
-    font-size: 10px;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    color: var(--ink3);
-    margin-bottom: .5rem;
-  }
-  .site-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(42px, 8vw, 72px);
-    font-weight: 300;
-    line-height: 1;
-    color: var(--ink);
-    letter-spacing: -.02em;
-  }
-  .site-title em {
-    font-style: italic;
-    color: var(--accent);
-  }
-  .site-sub {
-    font-size: 10px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--ink3);
-    margin-top: .75rem;
-  }
+/* ── HEADER ── */
+header {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem 3rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.eyebrow {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin-bottom: 1.5rem;
+}
+.title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: .35em;
+  flex-wrap: wrap;
+}
+.t-pobre {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(64px, 12vw, 120px);
+  font-weight: 700;
+  line-height: .9;
+  color: var(--cream);
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+}
+.t-maria {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(64px, 12vw, 120px);
+  font-weight: 700;
+  font-style: italic;
+  line-height: .9;
+  color: var(--gold);
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+}
+.header-rule {
+  margin: 1.75rem 0 1.25rem;
+  border: none;
+  border-top: 1px solid var(--line);
+}
+.header-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.header-sub {
+  font-family: 'EB Garamond', serif;
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+.header-count {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ash2);
+}
 
-  /* ── NAV ── */
-  nav {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: .75rem 2rem;
-    border-bottom: 1px solid var(--line);
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .nav-label {
-    font-size: 10px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--ink3);
-    margin-right: 6px;
-  }
-  .filter-btn {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    padding: 4px 12px;
-    border: 1px solid var(--line);
-    background: transparent;
-    color: var(--ink2);
-    cursor: pointer;
-    transition: all .15s;
-    letter-spacing: .04em;
-  }
-  .filter-btn:hover { border-color: var(--ink3); color: var(--ink); }
-  .filter-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+/* ── NAV ── */
+nav {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg2);
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.filter-btn {
+  font-family: 'EB Garamond', serif;
+  font-size: 12px;
+  padding: .875rem 1.25rem;
+  border: none;
+  border-right: 1px solid var(--line2);
+  background: transparent;
+  color: var(--ash);
+  cursor: pointer;
+  transition: all .15s;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.filter-btn:first-child { border-left: none; }
+.filter-btn:hover { color: var(--cream); background: var(--bg3); }
+.filter-btn.active {
+  color: var(--gold);
+  background: var(--bg3);
+  border-bottom: 2px solid var(--gold);
+}
 
-  /* ── MAIN ── */
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
+/* ── MAIN ── */
+main {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 2.5rem;
+}
 
-  /* ── GRID ── */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1px;
-    border: 1px solid var(--line);
-  }
-  .card {
-    background: var(--bg);
-    padding: 1.25rem 1.25rem 1rem;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: background .15s, border-color .15s;
-    position: relative;
-  }
-  .card:hover { background: var(--bg2); }
-  .card-tag {
-    font-size: 9px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--ink3);
-    margin-bottom: .5rem;
-  }
-  .card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: .75rem;
-  }
-  .card-prog {
-    height: 1px;
-    background: var(--line);
-    margin-bottom: .75rem;
-    overflow: hidden;
-  }
-  .card-prog-fill {
-    height: 100%;
-    background: var(--green);
-    transition: width .4s;
-  }
-  .card-meta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .badge {
-    font-size: 9px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border: 1px solid;
-  }
-  .badge-ok { color: var(--green); border-color: var(--green-bg); background: var(--green-bg); }
-  .card-time {
-    font-size: 10px;
-    color: var(--ink3);
-    letter-spacing: .04em;
-  }
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--line2);
+}
+.card {
+  background: var(--bg);
+  padding: 1.5rem 1.5rem 1.25rem;
+  cursor: pointer;
+  transition: background .15s;
+  position: relative;
+}
+.card:hover { background: var(--bg2); }
+.card:hover .card-title { color: var(--cream); }
+.card-tag {
+  font-family: 'EB Garamond', serif;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin-bottom: .625rem;
+}
+.card-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--cream2);
+  margin-bottom: .75rem;
+  transition: color .15s;
+}
+.card-prog {
+  height: 1px;
+  background: var(--line2);
+  margin-bottom: .875rem;
+  overflow: hidden;
+}
+.card-prog-fill {
+  height: 100%;
+  background: var(--gold2);
+  transition: width .4s;
+}
+.card-callout {
+  font-family: 'Cormorant', serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ash);
+  line-height: 1.4;
+  margin-bottom: .75rem;
+}
+.card-time {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ash2);
+}
 
-  /* ── DETAIL ── */
-  #detail { display: none; }
-  #detail.open { display: block; }
-  #home.hidden { display: none; }
+/* ── DETAIL ── */
+#detail { display: none; }
+#detail.open { display: block; }
+#home.hidden { display: none; }
 
-  .back-btn {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: .08em;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--ink3);
-    padding: 0;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: color .15s;
-  }
-  .back-btn:hover { color: var(--ink); }
+.back-btn {
+  font-family: 'EB Garamond', serif;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  color: var(--ash);
+  padding: .5rem 1.25rem;
+  margin-bottom: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all .15s;
+}
+.back-btn:hover { border-color: var(--gold2); color: var(--gold); }
 
-  .detail-eyebrow {
-    font-size: 9px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--ink3);
-    margin-bottom: .5rem;
-  }
-  .detail-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 5vw, 44px);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--ink);
-    margin-bottom: .5rem;
-  }
-  .detail-desc {
-    font-size: 12px;
-    color: var(--ink2);
-    margin-bottom: 1rem;
-    max-width: 520px;
-    line-height: 1.7;
-  }
-  .detail-meta {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 1.25rem;
-  }
+.detail-tag {
+  font-size: 10px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin-bottom: .625rem;
+  font-family: 'EB Garamond', serif;
+}
+.detail-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 700;
+  line-height: 1.0;
+  color: var(--cream);
+  margin-bottom: .625rem;
+}
+.detail-callout {
+  font-family: 'Cormorant', serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold2);
+  margin-bottom: .5rem;
+  line-height: 1.4;
+}
+.detail-desc {
+  font-size: 14px;
+  color: var(--ash);
+  margin-bottom: 1.25rem;
+  max-width: 560px;
+  line-height: 1.7;
+}
+.detail-rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin-bottom: 1.5rem;
+}
+.detail-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+.meta-item { display: flex; flex-direction: column; gap: 2px; }
+.meta-label {
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ash2);
+  font-family: 'EB Garamond', serif;
+}
+.meta-val {
+  font-size: 13px;
+  color: var(--cream2);
+  letter-spacing: .04em;
+  font-family: 'EB Garamond', serif;
+}
 
-  /* ── TIMELINE ── */
-  .tl-section { margin-bottom: 1.5rem; }
-  .tl-label-row {
-    font-size: 9px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--ink3);
-    margin-bottom: .5rem;
-  }
-  .tl-track {
-    display: flex;
-    align-items: flex-end;
-    gap: 2px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-  }
-  .tl-step { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-  .tl-bar {
-    height: 4px;
-    background: var(--bg2);
-    border: 1px solid var(--line);
-    transition: background .25s;
-    min-width: 32px;
-  }
-  .tl-bar.done { background: var(--green); border-color: var(--green); }
-  .tl-step-label { font-size: 9px; color: var(--ink3); white-space: nowrap; letter-spacing: .04em; }
-  .tl-step-min { font-size: 9px; color: var(--ink3); }
+/* ── TIMELINE ── */
+.tl-section { margin-bottom: 2rem; }
+.tl-label {
+  font-size: 9px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ash2);
+  margin-bottom: .75rem;
+  font-family: 'EB Garamond', serif;
+}
+.tl-track {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+.tl-step { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.tl-bar {
+  height: 3px;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--ash2);
+  transition: all .25s;
+  min-width: 36px;
+}
+.tl-bar.done { background: var(--gold2); border-color: var(--gold); }
+.tl-step-label {
+  font-family: 'EB Garamond', serif;
+  font-size: 10px;
+  color: var(--ash2);
+  white-space: nowrap;
+  letter-spacing: .08em;
+}
+.tl-step-min {
+  font-family: 'EB Garamond', serif;
+  font-size: 10px;
+  color: var(--ash2);
+}
 
-  /* ── PROGRESS ── */
-  .prog-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 1.25rem;
-  }
-  .prog-track {
-    flex: 1;
-    height: 1px;
-    background: var(--line);
-    overflow: hidden;
-  }
-  .prog-fill { height: 100%; background: var(--green); transition: width .3s; }
-  .prog-txt { font-size: 10px; color: var(--ink3); white-space: nowrap; letter-spacing: .04em; }
+/* ── PROGRESS ── */
+.prog-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 1.5rem;
+}
+.prog-track {
+  flex: 1;
+  height: 1px;
+  background: var(--line2);
+  overflow: hidden;
+}
+.prog-fill { height: 100%; background: var(--gold2); transition: width .3s; }
+.prog-txt {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  color: var(--ash2);
+  white-space: nowrap;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
 
-  /* ── ETAPAS ── */
-  .etapas { display: flex; flex-direction: column; gap: 1px; }
-  .etapa {
-    border: 1px solid var(--line);
-    background: var(--bg);
-    transition: border-color .2s;
-  }
-  .etapa.done { border-color: var(--green); }
-  .etapa-hdr {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: .75rem 1rem;
-    cursor: pointer;
-    user-select: none;
-  }
-  .etapa-hdr:hover { background: var(--bg2); }
-  .chk {
-    width: 16px; height: 16px;
-    border: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    transition: all .2s;
-    font-size: 9px;
-    color: transparent;
-  }
-  .etapa.done .chk { background: var(--green); border-color: var(--green); color: #fff; }
-  .etapa-num { font-size: 10px; color: var(--ink3); width: 16px; flex-shrink: 0; letter-spacing: .04em; }
-  .etapa-nome { font-size: 13px; color: var(--ink); flex: 1; letter-spacing: .02em; }
-  .etapa-tempo { font-size: 10px; color: var(--ink3); flex-shrink: 0; }
-  .etapa-body { display: none; padding: 0 1rem .875rem 2.875rem; }
-  .etapa-body.open { display: block; }
-  .ing-hdr {
-    font-size: 9px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--ink3);
-    margin-bottom: 4px;
-    margin-top: 2px;
-  }
-  table.ing { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
-  table.ing td {
-    font-size: 11px;
-    padding: 3px 0;
-    border-bottom: 1px solid var(--line);
-    color: var(--ink2);
-  }
-  table.ing td:last-child { text-align: right; color: var(--ink); }
-  .body-txt { font-size: 12px; color: var(--ink2); line-height: 1.65; margin-bottom: 4px; }
-  .aviso-txt { font-size: 11px; color: var(--warn); font-style: italic; line-height: 1.5; }
+/* ── ETAPAS ── */
+.etapas { display: flex; flex-direction: column; gap: 1px; background: var(--line2); }
+.etapa {
+  background: var(--bg);
+  border-left: 2px solid transparent;
+  transition: border-color .2s;
+}
+.etapa.done { border-left-color: var(--gold2); }
+.etapa-hdr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: .875rem 1.25rem;
+  cursor: pointer;
+  user-select: none;
+}
+.etapa-hdr:hover { background: var(--bg2); }
+.chk {
+  width: 15px; height: 15px;
+  border: 1px solid var(--ash2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all .2s;
+  font-size: 9px;
+  color: transparent;
+  font-weight: 700;
+}
+.etapa.done .chk { background: var(--gold2); border-color: var(--gold2); color: var(--bg); }
+.etapa-num {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  color: var(--ash2);
+  width: 20px;
+  flex-shrink: 0;
+  letter-spacing: .08em;
+}
+.etapa-nome {
+  font-family: 'EB Garamond', serif;
+  font-size: 15px;
+  color: var(--cream2);
+  flex: 1;
+  letter-spacing: .02em;
+}
+.etapa-tempo {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  color: var(--ash2);
+  flex-shrink: 0;
+  letter-spacing: .08em;
+}
+.etapa-body { display: none; padding: 0 1.25rem .875rem 3.25rem; }
+.etapa-body.open { display: block; }
 
-  .reset-btn {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: .08em;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--ink3);
-    padding: 0;
-    margin-top: 1rem;
-    transition: color .15s;
-  }
-  .reset-btn:hover { color: var(--ink); }
+.ing-hdr {
+  font-family: 'EB Garamond', serif;
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin: 6px 0 6px;
+}
+table.ing { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+table.ing td {
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--line2);
+  color: var(--ash);
+}
+table.ing td:last-child { text-align: right; color: var(--cream2); }
+.body-txt {
+  font-family: 'EB Garamond', serif;
+  font-size: 14px;
+  color: var(--ash);
+  line-height: 1.7;
+  margin-bottom: 6px;
+}
+.aviso-txt {
+  font-family: 'Cormorant', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--warn);
+  line-height: 1.5;
+}
 
-  /* ── FOOTER ── */
-  footer {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1.5rem 2rem;
-    border-top: 1px solid var(--line);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .footer-l { font-size: 10px; color: var(--ink3); letter-spacing: .08em; }
-  .footer-r { font-size: 10px; color: var(--ink3); letter-spacing: .08em; }
+.reset-btn {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ash2);
+  padding: 0;
+  margin-top: 1.5rem;
+  transition: color .15s;
+}
+.reset-btn:hover { color: var(--gold2); }
 
-  @media (max-width: 600px) {
-    header, nav, main, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
-    .grid { grid-template-columns: 1fr; }
-  }
+/* ── FOOTER ── */
+footer {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 1.5rem 2.5rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-txt {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  color: var(--ash2);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  header, main, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+  nav { padding-left: 1.5rem; }
+  .grid { grid-template-columns: 1fr; }
+  .t-pobre, .t-maria { font-size: 56px; }
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="site-eyebrow">Sul do Brasil · Project Gastronomia</div>
-  <h1 class="site-title">Pobre <em>Maria</em></h1>
-  <p class="site-sub">Gastronomia com Identidade &nbsp;·&nbsp; v1</p>
+  <div class="eyebrow">Receitas da Família Marques Silva &nbsp;·&nbsp; Sul do Brasil</div>
+  <div class="title-wrap">
+    <span class="t-pobre">Pobre</span>
+    <span class="t-maria">Maria</span>
+  </div>
+  <hr class="header-rule">
+  <div class="header-bottom">
+    <span class="header-sub">Gastronomia com Identidade</span>
+    <span class="header-count">10 receitas &nbsp;·&nbsp; v1 &nbsp;·&nbsp; jun/2026</span>
+  </div>
 </header>
 
 <nav>
-  <span class="nav-label">Filtrar</span>
   <button class="filter-btn active" onclick="setCat('todas',this)">Todas</button>
   <button class="filter-btn" onclick="setCat('panificacao',this)">Panificação</button>
   <button class="filter-btn" onclick="setCat('confeitaria',this)">Confeitaria</button>
@@ -370,19 +500,28 @@
 </nav>
 
 <main>
-  <div id="home">
-    <div class="grid" id="grid"></div>
-  </div>
+  <div id="home"><div class="grid" id="grid"></div></div>
   <div id="detail"></div>
 </main>
 
 <footer>
-  <span class="footer-l">Pobre Maria · jun/2026</span>
-  <span class="footer-r">10 receitas · v1</span>
+  <span class="footer-txt">Família Marques Silva</span>
+  <span class="footer-txt">Pobre Maria &nbsp;·&nbsp; v1</span>
 </footer>
 
 <script>
-const R=[{id:"cuca-goiabada",tag:"Panificação",cat:"panificacao",titulo:"Cuca de Goiabada Cremosa",desc:"Cuca molhada, textura aveludada, massa aerada. Fermentação fria noturna.",tempo:"14h",meta:["Fermentação fria","20×30 cm"],tl:[{e:"Esponja",m:45},{e:"Massa",m:20},{e:"Ferm.",m:60},{e:"Goiabada",m:15},{e:"Geladeira",m:480},{e:"Assar",m:35}],etapas:[{n:1,nome:"Esponja — noite",t:"30–45 min",ing:[["Farinha de trigo","100g"],["Leite morno","100g"],["Fermento biológico seco","4g"],["Açúcar","15g"]],body:"Misturar até creme espesso. Cobrir frouxamente. Aguardar 30–45 min até bolhas abundantes.",aviso:"Não deixar colapsar."},{n:2,nome:"Massa principal",t:"20 min",ing:[["Farinha (Veneranda ou Orquídea)","140g"],["Ovo","1 un."],["Açúcar","40g"],["Manteiga derretida","50g"],["Creme de leite (Nestlé lata)","35g"],["Leite","20g"]],body:"Misturar esponja + ovo + açúcar + manteiga + creme + leite. Adicionar farinha. Sovar 10–12 min à mão / 6–8 min com gancho.",aviso:"Não corrigir com farinha excessiva."},{n:3,nome:"Fermentação parcial",t:"45–75 min",ing:null,body:"Crescimento alvo: 50–60%. Ponto: viva, levemente inflada, ainda firme.",aviso:"Não dobrar antes da geladeira."},{n:4,nome:"Goiabada cremosa",t:"15 min",ing:[["Goiabada (Petry)","220g"],["Água","60g"],["Manteiga","15g"],["Flor de sal","0,5g"]],body:"Fogo baixo até creme brilhante, espesso e sedoso. Flor de sal: abrir o buquê da goiaba, não temperar.",aviso:"Esfriar até ≤30°C antes de montar."},{n:5,nome:"Farofa",t:"10 min",ing:[["Farinha de trigo","100g"],["Açúcar","60g"],["Manteiga gelada","60g"],["Raspas de limão siciliano","3g"],["Canela","a gosto"]],body:"Misturar até grumos grandes, úmidos, amanteigados. Levar à geladeira.",aviso:null},{n:6,nome:"Montagem",t:"10 min",ing:null,body:"Forma untada. Massa → goiabada em colheradas (bolsões) → farofa.",aviso:null},{n:7,nome:"Geladeira",t:"8–12h",ing:null,body:"Cobrir com filme. 3–5°C por 8–12 horas.",aviso:null},{n:8,nome:"Manhã seguinte",t:"45–60 min",ing:null,body:"Retirar 45–60 min antes de assar. Pré-aquecer forno.",aviso:"Não esperar crescimento exagerado."},{n:9,nome:"Assar",t:"30–35 min",ing:null,body:"190°C · 30–35 min · dourado profundo, farofa firme.",aviso:null}]},{id:"cinnamon-roll",tag:"Panificação",cat:"panificacao",titulo:"Cinnamon Roll com Esponja",desc:"Roll aerado com esponja pré-fermentada. Massa macia, recheio de canela, glacê de baunilha.",tempo:"4h (ou 14h fria)",meta:["Esponja","Ferm. fria opcional"],tl:[{e:"Esponja",m:45},{e:"Massa",m:20},{e:"1ª Ferm.",m:90},{e:"Montagem",m:15},{e:"2ª Ferm.",m:90},{e:"Assar",m:25}],etapas:[{n:1,nome:"Esponja",t:"30–45 min",ing:[["Farinha de trigo","100g"],["Leite morno","100ml"],["Fermento biológico seco","5g"],["Açúcar","15g"]],body:"Misturar até creme espesso. Cobrir frouxamente. Aguardar 30–45 min até bolhas abundantes.",aviso:"Não deixar colapsar antes de usar."},{n:2,nome:"Massa principal",t:"20 min",ing:[["Esponja (toda)","—"],["Farinha de trigo","350g"],["Açúcar","60g"],["Sal","8g"],["Leite morno","100ml"],["Manteiga derretida","60g"],["Ovo","1 un."]],body:"Esponja + leite + manteiga + ovo + açúcar. Farinha, por último o sal. Sovar 8–10 min.",aviso:"Massa levemente úmida é o ponto correto."},{n:3,nome:"Primeira fermentação",t:"1h–1h30",ing:null,body:"Cobrir e deixar em local morno até dobrar.",aviso:"Não apressar."},{n:4,nome:"Recheio",t:"5 min",ing:[["Manteiga amolecida","100g"],["Açúcar mascavo","200g"],["Canela em pó","2 col. sopa"]],body:"Misturar até pasta homogênea.",aviso:null},{n:5,nome:"Montagem",t:"15 min",ing:null,body:"Abrir massa 40×30cm, 0,5cm. Espalhar recheio. Enrolar. Cortar fatias 5cm. Forma untada.",aviso:null},{n:6,nome:"Segunda fermentação",t:"1h–1h30",ing:null,body:"Cobrir e aguardar crescimento visível.",aviso:"Para sabor complexo: geladeira 8–12h. Retirar 1h antes."},{n:7,nome:"Assar",t:"20–25 min",ing:null,body:"180°C por 20–25 min até dourados.",aviso:"Interior deve permanecer macio."},{n:8,nome:"Glacê de baunilha",t:"5 min",ing:[["Açúcar de confeiteiro","150g"],["Leite","2–3 col. sopa"],["Extrato de baunilha","1/2 col. chá"]],body:"Misturar até glacê suave. Regar os rolls ainda quentes.",aviso:null}]},{id:"medialunas",tag:"Panificação",cat:"panificacao",titulo:"Medialunas de Manteca",desc:"Croissant argentino laminado com esponja. Camadas folhadas, miolo macio, aroma de panadería.",tempo:"~16h",meta:["Ferm. fria","Laminada"],tl:[{e:"Esponja",m:45},{e:"Massa",m:60},{e:"Laminação",m:180},{e:"Modelagem",m:30},{e:"Ferm.",m:480},{e:"Assar",m:20}],etapas:[{n:1,nome:"Esponja",t:"30–45 min",ing:[["Farinha de trigo","100g"],["Leite morno","100ml"],["Fermento biológico seco","10g"],["Açúcar","15g"]],body:"Misturar, cobrir. Aguardar triplicar de volume com bolhas abundantes.",aviso:null},{n:2,nome:"Massa principal",t:"20 min + 45 min",ing:[["Esponja (toda)","—"],["Farinha de trigo","400g"],["Açúcar","85g"],["Sal","10g"],["Ovos","2 un."],["Leite","100ml"],["Manteiga derretida","75g"]],body:"Esponja + leite + ovos + manteiga + açúcar. Farinha, por último o sal. Sovar 8–10 min. Descansar 45 min.",aviso:null},{n:3,nome:"Laminação",t:"3h",ing:[["Manteiga fria","250g"]],body:"Modelar manteiga 18cm. Abrir massa 40×25cm. Carta em três. Dobrar, girar 90°. Geladeira 1h. Repetir 2 vezes.",aviso:"Dia quente: 10 min de freezer antes de cada dobra."},{n:4,nome:"Modelagem",t:"30 min",ing:null,body:"Abrir 1cm. Triângulos 10–12cm base. Enrolar da base à ponta.",aviso:null},{n:5,nome:"Fermentação fria",t:"8–12h",ing:null,body:"Geladeira 8–12h. Retirar 1h antes de assar.",aviso:"Alternativa: local morno 2h."},{n:6,nome:"Assar",t:"15–20 min",ing:null,body:"185°C. Pincelar ovo + leite. 15–20 min até dourar.",aviso:null},{n:7,nome:"Calda de brilho",t:"5 min",ing:[["Açúcar","50g"],["Água","50ml"]],body:"Ferver até dissolver. Pincelar sobre as medialunas quentes.",aviso:null}]},{id:"conitos",tag:"Confeitaria",cat:"confeitaria",titulo:"Conitos Estilo Cachafaz",desc:"Biscoito amanteigado com fubá, cone de doce de leite argentino, cobertura de chocolate.",tempo:"~1h30",meta:["12–14 un."],tl:[{e:"Base",m:20},{e:"Assar",m:10},{e:"Esfriar",m:30},{e:"Recheio",m:15},{e:"Freezer",m:15},{e:"Cobertura",m:10}],etapas:[{n:1,nome:"Base — biscoito",t:"20 min",ing:[["Manteiga sem sal","90g"],["Açúcar de confeiteiro","60g"],["Gema","1 un."],["Baunilha","1 col. chá"],["Mel claro","1 col. sopa"],["Farinha de trigo","80g"],["Fubá fino","40g"],["Amido de milho","40g"],["Fermento químico","1 col. chá"],["Sal","pitada"]],body:"Bater manteiga + açúcar. Gema, baunilha, mel. Peneirar secos. Abrir 0,5cm. Cortar círculos 4cm.",aviso:null},{n:2,nome:"Assar a base",t:"8–10 min",ing:null,body:"170°C por 8–10 min.",aviso:"Não dourar. Esfriar completamente."},{n:3,nome:"Recheio — cone",t:"15 min + 15 min freezer",ing:[["Doce de leite firme argentino","300g"]],body:"Saco de confeitar, bico liso. Cone 4–5cm. Freezer 15 min.",aviso:null},{n:4,nome:"Cobertura de chocolate",t:"10 min",ing:[["Chocolate cobertura meio amargo","300g"],["Manteiga de cacau","1 col. sopa"]],body:"Derreter chocolate. Mergulhar cones. Cristalizar.",aviso:null}]},{id:"torta-frutas",tag:"Confeitaria",cat:"confeitaria",titulo:"Torta de Frutas Vermelhas",desc:"Massa podre amanteigada com morangos e mirtilos, trama de tiras no topo.",tempo:"~3h30",meta:["Frutas vermelhas"],tl:[{e:"Massa",m:15},{e:"Geladeira",m:120},{e:"Recheio",m:10},{e:"Montagem",m:15},{e:"Forno",m:30}],etapas:[{n:1,nome:"Massa podre",t:"15 min + 2h geladeira",ing:[["Farinha de trigo","250g"],["Manteiga gelada","125g"],["Açúcar","100g"],["Gema","1 un."],["Água","5 col. sopa"],["Sal","pitada"]],body:"Açúcar + gema + água. Farinha + sal + manteiga, esfarinhar. Amassar. Geladeira 2h.",aviso:null},{n:2,nome:"Recheio",t:"10 min",ing:[["Morangos","250g"],["Mirtilos","80g"],["Açúcar cristal","100g"],["Amido de milho","2 col. sopa"]],body:"Misturar tudo e reservar.",aviso:null},{n:3,nome:"Montagem",t:"15 min",ing:[["Ovo batido","1 un."],["Açúcar cristal","50g"]],body:"Forrar forma. Recheio. Trama de tiras. Pincelar ovo, polvilhar açúcar.",aviso:null},{n:4,nome:"Assar",t:"30 min",ing:null,body:"180°C por 30 min. Servir com sorvete de baunilha.",aviso:null}]},{id:"crumble",tag:"Sobremesa",cat:"sobremesa",titulo:"Crumble de Morango com Farofa",desc:"Morangos caramelizados na frigideira de ferro. Duas versões de farofa.",tempo:"~45 min",meta:["2 pessoas","Ferro fundido"],tl:[{e:"Frutas",m:10},{e:"Farofa",m:10},{e:"Forno",m:25}],etapas:[{n:1,nome:"Frutas na frigideira",t:"10 min",ing:[["Morangos","250g"],["Manteiga","1 col. sopa"],["Açúcar demerara","1 col. sopa"],["Suco de limão","a gosto"],["Cachaça (opcional)","1 col. chá"]],body:"Macerar 20 min. Frigideira quente. Caramelizar 1 min. Morangos 2–3 min. Limão e cachaça. Calda leve.",aviso:null},{n:2,nome:"Farofa clássica (A)",t:"30 min",ing:[["Farinha de trigo","60g"],["Manteiga gelada","30g"],["Açúcar cristal","2 col. sopa"],["Sal","pitada"],["Canela","1/2 col. chá"]],body:"Esfarinhar manteiga. 180°C 20–25 min. Esfriar.",aviso:"Crocante ao esfriar — não servir quente."},{n:3,nome:"Farofa com fubá (B)",t:"30 min",ing:[["Farinha de trigo","60g"],["Fubá fino","20g"],["Rapadura ralada","1 col. sopa"],["Manteiga gelada","1 col. sopa"],["Canela","pitada"],["Pinhão ou castanha (opcional)","1 col. sopa"]],body:"Esfregar manteiga gelada. 180°C 20–25 min. Esfriar.",aviso:null}]},{id:"petit-gateau",tag:"Sobremesa",cat:"sobremesa",titulo:"Petit Gateau de Doce de Leite",desc:"Bolo de doce de leite com centro derretido. Servir imediatamente com sorvete.",tempo:"~30 min",meta:["Ferro fundido"],tl:[{e:"Massa",m:15},{e:"Assar",m:10},{e:"Servir",m:5}],etapas:[{n:1,nome:"Massa",t:"15 min",ing:[["Doce de leite","200g"],["Manteiga","100g"],["Ovos","2 un."],["Gemas","2 un."],["Açúcar","2 col. sopa"],["Farinha de trigo","30g"],["Chocolate em pó","2 col. sopa"]],body:"Derreter doce de leite + manteiga em banho-maria. Agregar ovos e gemas. Juntar açúcar e farinha.",aviso:null},{n:2,nome:"Assar",t:"10 min",ing:null,body:"Forminhas untadas com chocolate em pó. 200°C por 10 min.",aviso:"Centro mole é o ponto correto."},{n:3,nome:"Servir",t:"imediato",ing:null,body:"Desenformar e servir com sorvete.",aviso:null}]},{id:"creme-brulee",tag:"Sobremesa",cat:"sobremesa",titulo:"Crème Brûlée de Doce de Leite",desc:"Creme sedoso de doce de leite com crosta caramelizada de açúcar mascavo.",tempo:"~2h30",meta:["6 porções","Maçarico"],tl:[{e:"Creme",m:20},{e:"Forno",m:40},{e:"Geladeira",m:90},{e:"Brûlée",m:5}],etapas:[{n:1,nome:"Base do creme",t:"20 min",ing:[["Creme de leite fresco","350g"],["Doce de leite","3 col. sopa"],["Gemas","3 un."],["Açúcar","1/6 xícara"],["Essência de baunilha","1/2 col. chá"]],body:"Aquecer creme + doce de leite. Esfriar. Bater gemas + açúcar. Adicionar creme aos poucos.",aviso:"Não ferver o creme."},{n:2,nome:"Banho-maria",t:"35–40 min",ing:null,body:"135°C. 6 formas em assadeira com água. 35–40 min até centro mole.",aviso:null},{n:3,nome:"Geladeira",t:"mínimo 1h30",ing:null,body:"Esfriar 10 min. Geladeira até servir.",aviso:null},{n:4,nome:"Brûlée",t:"5 min",ing:[["Açúcar mascavo","a gosto"]],body:"Polvilhar açúcar mascavo. Maçarico até crosta crocante. Servir imediatamente.",aviso:null}]},{id:"polvo",tag:"Parrilla",cat:"parrilla",titulo:"Polvo na Parrilla",desc:"Polvo pré-cozido na pressão, marinado e grelhado em fogo alto.",tempo:"~2h",meta:["Parrilla"],tl:[{e:"Pressão",m:20},{e:"Marinada",m:60},{e:"Batatas",m:40},{e:"Parrilla",m:15}],etapas:[{n:1,nome:"Pressão",t:"8–10 min",ing:[["Polvo congelado","1 un."],["Cebola ao meio","1 un."],["Louro","2 folhas"],["Sal","1 col. chá"],["Água","200ml"]],body:"Polvo congelado direto. 8–10 min após pressão. Separar tentáculos. Secar bem.",aviso:"Congelado preserva suculência. Secar para crosta."},{n:2,nome:"Marinada",t:"30–60 min",ing:[["Azeite extra virgem","3 col. sopa"],["Suco de limão","1/2 un."],["Páprica defumada","1 col. chá"],["Sal e pimenta","a gosto"]],body:"Envolver tentáculos. Marinar 30–60 min.",aviso:null},{n:3,nome:"Batatas ao murro",t:"40 min",ing:[["Batatas médias","4–6 un."],["Azeite, sal grosso, ervas","a gosto"]],body:"Cozinhar até macias. Amassar. Grelhar em fogo alto.",aviso:null},{n:4,nome:"Parrilla",t:"8–12 min",ing:null,body:"Fogo alto. 4–6 min cada lado. Finalizar com azeite e limão.",aviso:"Não mover antes de soltar naturalmente."}]},{id:"lasanha",tag:"Massas",cat:"massas",titulo:"Lasanha à Bolognese",desc:"Ragù lento com tutano, béchamel clássico e massa fresca. Referência Evan Funke.",tempo:"~3h30",meta:["Massa fresca","Ragù lento"],tl:[{e:"Ragù",m:150},{e:"Béchamel",m:15},{e:"Montagem",m:20},{e:"Forno",m:40}],etapas:[{n:1,nome:"Ragù alla Bolognese",t:"2h30",ing:[["Carne moída (acém+peito)","500g"],["Pancetta","200g"],["Cebola","1 un."],["Aipo","2 talos"],["Cenoura","2 un."],["Extrato de tomate","2 col. sopa"],["Tomates pelados","400g"],["Vinho branco seco","1 copo"],["Leite integral","400ml"],["Tutano (opcional)","100g"]],body:"Dourar pancetta. Sofrito. Carne + tutano. Vinho — evaporar. Tomates + leite. Fogo baixo 2h.",aviso:"Não apressar — o tempo é o sabor."},{n:2,nome:"Béchamel",t:"15 min",ing:[["Manteiga","50g"],["Farinha","50g"],["Leite integral","500ml"]],body:"Roux. Leite aos poucos até liso. Temperar.",aviso:null},{n:3,nome:"Montagem",t:"20 min",ing:[["Massa fresca","500g"],["Parmigiano-Reggiano","a gosto"]],body:"Ragù no fundo. Massa → ragù → béchamel. Finalizar com Parmigiano.",aviso:"Massa fresca: 1–2 min antes de montar."},{n:4,nome:"Assar e descansar",t:"40 min + 15 min",ing:null,body:"180°C até dourado. Descansar 10–15 min.",aviso:null}]}];
+const R=[
+{id:"cuca-goiabada",tag:"Panificação",cat:"panificacao",titulo:"Cuca de Goiabada Cremosa",callout:"Molhada por dentro, crocante por fora.",desc:"Fermentação fria noturna. Massa aveludada, bolsões de goiabada, farofa com raspas de limão.",tempo:"14h",meta:[["Forma","20×30 cm"],["Fermentação","Noturna"]],tl:[{e:"Esponja",m:45},{e:"Massa",m:20},{e:"Ferm.",m:60},{e:"Goiabada",m:15},{e:"Geladeira",m:480},{e:"Assar",m:35}],etapas:[{n:1,nome:"Esponja — noite",t:"30–45 min",ing:[["Farinha de trigo","100g"],["Leite morno","100g"],["Fermento biológico seco","4g"],["Açúcar","15g"]],body:"Misturar até creme espesso. Cobrir frouxamente. Aguardar 30–45 min até bolhas abundantes.",aviso:"Não deixar colapsar."},{n:2,nome:"Massa principal",t:"20 min",ing:[["Farinha (Veneranda ou Orquídea)","140g"],["Ovo","1 un."],["Açúcar","40g"],["Manteiga derretida","50g"],["Creme de leite (Nestlé lata)","35g"],["Leite","20g"]],body:"Misturar esponja + ovo + açúcar + manteiga + creme + leite. Adicionar farinha. Sovar 10–12 min à mão / 6–8 min com gancho.",aviso:"Não corrigir com farinha excessiva."},{n:3,nome:"Fermentação parcial",t:"45–75 min",ing:null,body:"Crescimento alvo: 50–60%. Ponto: viva, levemente inflada, ainda firme.",aviso:"Não dobrar antes da geladeira."},{n:4,nome:"Goiabada cremosa",t:"15 min",ing:[["Goiabada (Petry)","220g"],["Água","60g"],["Manteiga","15g"],["Flor de sal","0,5g"]],body:"Fogo baixo até creme brilhante, espesso e sedoso. Flor de sal: abrir o buquê da goiaba, não temperar.",aviso:"Esfriar até ≤30°C antes de montar."},{n:5,nome:"Farofa",t:"10 min",ing:[["Farinha de trigo","100g"],["Açúcar","60g"],["Manteiga gelada","60g"],["Raspas de limão siciliano","3g"],["Canela","a gosto"]],body:"Misturar até grumos grandes, úmidos, amanteigados. Levar à geladeira.",aviso:null},{n:6,nome:"Montagem",t:"10 min",ing:null,body:"Forma untada. Massa → goiabada em colheradas (bolsões) → farofa.",aviso:null},{n:7,nome:"Geladeira",t:"8–12h",ing:null,body:"Cobrir com filme. 3–5°C por 8–12 horas.",aviso:null},{n:8,nome:"Manhã seguinte",t:"45–60 min",ing:null,body:"Retirar 45–60 min antes de assar. Pré-aquecer forno.",aviso:"Não esperar crescimento exagerado."},{n:9,nome:"Assar",t:"30–35 min",ing:null,body:"190°C · 30–35 min · dourado profundo, farofa firme.",aviso:null}]},
+{id:"cinnamon-roll",tag:"Panificação",cat:"panificacao",titulo:"Cinnamon Roll com Esponja",callout:"Canela, manteiga e paciência.",desc:"Esponja pré-fermentada, massa macia, recheio generoso de açúcar mascavo e canela.",tempo:"4h (ou 14h fria)",meta:[["Rende","8–10 un."],["Opção","Ferm. fria"]],tl:[{e:"Esponja",m:45},{e:"Massa",m:20},{e:"1ª Ferm.",m:90},{e:"Montagem",m:15},{e:"2ª Ferm.",m:90},{e:"Assar",m:25}],etapas:[{n:1,nome:"Esponja",t:"30–45 min",ing:[["Farinha de trigo","100g"],["Leite morno","100ml"],["Fermento biológico seco","5g"],["Açúcar","15g"]],body:"Misturar até creme espesso. Cobrir frouxamente. Aguardar 30–45 min até bolhas abundantes.",aviso:"Não deixar colapsar antes de usar."},{n:2,nome:"Massa principal",t:"20 min",ing:[["Esponja (toda)","—"],["Farinha de trigo","350g"],["Açúcar","60g"],["Sal","8g"],["Leite morno","100ml"],["Manteiga derretida","60g"],["Ovo","1 un."]],body:"Esponja + leite + manteiga + ovo + açúcar. Farinha, por último o sal. Sovar 8–10 min.",aviso:"Massa levemente úmida é o ponto correto."},{n:3,nome:"Primeira fermentação",t:"1h–1h30",ing:null,body:"Cobrir e deixar em local morno até dobrar.",aviso:"Não apressar."},{n:4,nome:"Recheio",t:"5 min",ing:[["Manteiga amolecida","100g"],["Açúcar mascavo","200g"],["Canela em pó","2 col. sopa"]],body:"Misturar até pasta homogênea.",aviso:null},{n:5,nome:"Montagem",t:"15 min",ing:null,body:"Abrir massa 40×30cm, 0,5cm. Espalhar recheio. Enrolar. Cortar fatias 5cm.",aviso:null},{n:6,nome:"Segunda fermentação",t:"1h–1h30",ing:null,body:"Cobrir e aguardar crescimento visível.",aviso:"Para sabor complexo: geladeira 8–12h. Retirar 1h antes."},{n:7,nome:"Assar",t:"20–25 min",ing:null,body:"180°C por 20–25 min até dourados.",aviso:"Interior deve permanecer macio."},{n:8,nome:"Glacê de baunilha",t:"5 min",ing:[["Açúcar de confeiteiro","150g"],["Leite","2–3 col. sopa"],["Extrato de baunilha","1/2 col. chá"]],body:"Misturar até glacê suave. Regar os rolls ainda quentes.",aviso:null}]},
+{id:"medialunas",tag:"Panificação",cat:"panificacao",titulo:"Medialunas de Manteca",callout:"Panadería de domingo de manhã.",desc:"Croissant argentino laminado com esponja. Camadas folhadas, miolo macio.",tempo:"~16h",meta:[["Fermentação","Noturna"],["Técnica","Laminação"]],tl:[{e:"Esponja",m:45},{e:"Massa",m:60},{e:"Laminação",m:180},{e:"Modelagem",m:30},{e:"Ferm.",m:480},{e:"Assar",m:20}],etapas:[{n:1,nome:"Esponja",t:"30–45 min",ing:[["Farinha de trigo","100g"],["Leite morno","100ml"],["Fermento biológico seco","10g"],["Açúcar","15g"]],body:"Misturar, cobrir. Aguardar triplicar de volume com bolhas abundantes.",aviso:null},{n:2,nome:"Massa principal",t:"20 min + 45 min",ing:[["Esponja (toda)","—"],["Farinha de trigo","400g"],["Açúcar","85g"],["Sal","10g"],["Ovos","2 un."],["Leite","100ml"],["Manteiga derretida","75g"]],body:"Esponja + leite + ovos + manteiga + açúcar. Farinha, por último o sal. Sovar 8–10 min. Descansar 45 min.",aviso:null},{n:3,nome:"Laminação",t:"3h",ing:[["Manteiga fria","250g"]],body:"Modelar manteiga 18cm. Abrir massa 40×25cm. Carta em três. Dobrar, girar 90°. Geladeira 1h. Repetir 2 vezes.",aviso:"Dia quente: 10 min de freezer antes de cada dobra."},{n:4,nome:"Modelagem",t:"30 min",ing:null,body:"Abrir 1cm. Triângulos 10–12cm base. Enrolar da base à ponta.",aviso:null},{n:5,nome:"Fermentação fria",t:"8–12h",ing:null,body:"Geladeira 8–12h. Retirar 1h antes de assar.",aviso:"Alternativa: local morno 2h."},{n:6,nome:"Assar",t:"15–20 min",ing:null,body:"185°C. Pincelar ovo + leite. 15–20 min até dourar.",aviso:null},{n:7,nome:"Calda de brilho",t:"5 min",ing:[["Açúcar","50g"],["Água","50ml"]],body:"Ferver até dissolver. Pincelar sobre as medialunas quentes.",aviso:null}]},
+{id:"conitos",tag:"Confeitaria",cat:"confeitaria",titulo:"Conitos Estilo Cachafaz",callout:"Buenos Aires em cada mordida.",desc:"Biscoito amanteigado com fubá, cone de doce de leite firme, mergulhado em chocolate.",tempo:"~1h30",meta:[["Rende","12–14 un."]],tl:[{e:"Base",m:20},{e:"Assar",m:10},{e:"Esfriar",m:30},{e:"Recheio",m:15},{e:"Freezer",m:15},{e:"Cobertura",m:10}],etapas:[{n:1,nome:"Base — biscoito",t:"20 min",ing:[["Manteiga sem sal","90g"],["Açúcar de confeiteiro","60g"],["Gema","1 un."],["Essência de baunilha","1 col. chá"],["Mel claro","1 col. sopa"],["Farinha de trigo","80g"],["Fubá fino","40g"],["Amido de milho","40g"],["Fermento químico","1 col. chá"],["Sal","pitada"]],body:"Bater manteiga + açúcar. Gema, baunilha, mel. Peneirar secos. Abrir 0,5cm. Cortar círculos 4cm.",aviso:null},{n:2,nome:"Assar a base",t:"8–10 min",ing:null,body:"170°C por 8–10 min.",aviso:"Não dourar. Esfriar completamente."},{n:3,nome:"Recheio — cone",t:"15 min + 15 min freezer",ing:[["Doce de leite firme argentino","300g"]],body:"Saco de confeitar, bico liso. Cone 4–5cm sobre cada base. Freezer 15 min.",aviso:null},{n:4,nome:"Cobertura de chocolate",t:"10 min",ing:[["Chocolate cobertura meio amargo","300g"],["Manteiga de cacau","1 col. sopa"]],body:"Derreter chocolate. Mergulhar cones. Cristalizar sobre papel manteiga.",aviso:null}]},
+{id:"torta-frutas",tag:"Confeitaria",cat:"confeitaria",titulo:"Torta de Frutas Vermelhas",callout:"Trama de tiras, recheio que borbulha.",desc:"Massa podre amanteigada com morangos e mirtilos, trama de tiras, açúcar cristal por cima.",tempo:"~3h30",meta:[["Técnica","Trama"],["Serviço","Com sorvete"]],tl:[{e:"Massa",m:15},{e:"Geladeira",m:120},{e:"Recheio",m:10},{e:"Montagem",m:15},{e:"Forno",m:30}],etapas:[{n:1,nome:"Massa podre",t:"15 min + 2h geladeira",ing:[["Farinha de trigo","250g"],["Manteiga gelada","125g"],["Açúcar","100g"],["Gema","1 un."],["Água","5 col. sopa"],["Sal","pitada"]],body:"Açúcar + gema + água. Farinha + sal + manteiga, esfarinhar. Amassar. Geladeira 2h.",aviso:null},{n:2,nome:"Recheio",t:"10 min",ing:[["Morangos","250g"],["Mirtilos","80g"],["Açúcar cristal","100g"],["Amido de milho","2 col. sopa"]],body:"Misturar tudo e reservar.",aviso:null},{n:3,nome:"Montagem",t:"15 min",ing:[["Ovo batido","1 un."],["Açúcar cristal","50g"]],body:"Forrar forma. Recheio. Trama de tiras. Pincelar ovo, polvilhar açúcar.",aviso:null},{n:4,nome:"Assar",t:"30 min",ing:null,body:"180°C por 30 min. Servir com sorvete de baunilha.",aviso:null}]},
+{id:"crumble",tag:"Sobremesa",cat:"sobremesa",titulo:"Crumble de Morango com Farofa",callout:"Frigideira de ferro, farofa crocante.",desc:"Morangos caramelizados na frigideira de ferro. Duas versões de farofa — clássica ou com fubá e pinhão.",tempo:"~45 min",meta:[["Rende","2 pessoas"],["Equipamento","Ferro fundido"]],tl:[{e:"Frutas",m:10},{e:"Farofa",m:10},{e:"Forno",m:25}],etapas:[{n:1,nome:"Frutas na frigideira",t:"10 min",ing:[["Morangos","250g"],["Manteiga","1 col. sopa"],["Açúcar demerara","1 col. sopa"],["Suco de limão","a gosto"],["Cachaça envelhecida (opcional)","1 col. chá"]],body:"Macerar morangos com açúcar 20 min. Frigideira quente. Caramelizar 1 min. Morangos 2–3 min. Limão e cachaça. Reduzir até calda leve.",aviso:null},{n:2,nome:"Farofa clássica (opção A)",t:"30 min",ing:[["Farinha de trigo","60g"],["Manteiga gelada","30g"],["Açúcar cristal","2 col. sopa"],["Sal","pitada"],["Canela","1/2 col. chá"]],body:"Esfarinhar manteiga. 180°C 20–25 min, mexer na metade. Esfriar completamente.",aviso:"Fica crocante ao esfriar — não servir quente."},{n:3,nome:"Farofa com fubá (opção B)",t:"30 min",ing:[["Farinha de trigo","60g"],["Fubá fino","20g"],["Rapadura ralada","1 col. sopa"],["Manteiga gelada","1 col. sopa"],["Canela","pitada"],["Pinhão ou castanha (opcional)","1 col. sopa"]],body:"Esfregar manteiga gelada. 180°C 20–25 min, mexer aos 12 min. Esfriar completamente.",aviso:null}]},
+{id:"petit-gateau",tag:"Sobremesa",cat:"sobremesa",titulo:"Petit Gateau de Doce de Leite",callout:"Centro mole é o ponto. Sem exceção.",desc:"Bolo de doce de leite com interior derretido. Dez minutos de forno — não um a mais.",tempo:"~30 min",meta:[["Equipamento","Ferro fundido"],["Serviço","Imediato"]],tl:[{e:"Massa",m:15},{e:"Assar",m:10},{e:"Servir",m:5}],etapas:[{n:1,nome:"Massa",t:"15 min",ing:[["Doce de leite","200g"],["Manteiga","100g"],["Ovos","2 un."],["Gemas","2 un."],["Açúcar","2 col. sopa"],["Farinha de trigo","30g"],["Chocolate em pó","2 col. sopa"]],body:"Derreter doce de leite + manteiga em banho-maria. Agregar ovos e gemas. Juntar açúcar e farinha.",aviso:null},{n:2,nome:"Assar",t:"10 min",ing:null,body:"Forminhas untadas com chocolate em pó. 200°C por 10 min.",aviso:"Centro mole é o ponto correto. Não passar de 10 min."},{n:3,nome:"Servir",t:"imediato",ing:null,body:"Desenformar e servir imediatamente com sorvete.",aviso:null}]},
+{id:"creme-brulee",tag:"Sobremesa",cat:"sobremesa",titulo:"Crème Brûlée de Doce de Leite",callout:"A crosta racha. O creme cede.",desc:"Creme sedoso de doce de leite com crosta caramelizada de açúcar mascavo.",tempo:"~2h30",meta:[["Rende","6 porções"],["Equipamento","Maçarico"]],tl:[{e:"Creme",m:20},{e:"Forno",m:40},{e:"Geladeira",m:90},{e:"Brûlée",m:5}],etapas:[{n:1,nome:"Base do creme",t:"20 min",ing:[["Creme de leite fresco","350g"],["Doce de leite","3 col. sopa"],["Gemas","3 un."],["Açúcar","1/6 xícara"],["Essência de baunilha","1/2 col. chá"]],body:"Aquecer creme + doce de leite em fogo baixo. Esfriar. Bater gemas + açúcar. Adicionar creme aos poucos.",aviso:"Não ferver o creme — apenas aquecer."},{n:2,nome:"Banho-maria",t:"35–40 min",ing:null,body:"135°C. 6 formas em assadeira com água até a metade. 35–40 min até centro levemente mole.",aviso:null},{n:3,nome:"Geladeira",t:"mínimo 1h30",ing:null,body:"Esfriar 10 min. Geladeira até servir.",aviso:null},{n:4,nome:"Brûlée",t:"5 min",ing:[["Açúcar mascavo","a gosto"]],body:"Polvilhar açúcar mascavo. Maçarico até crosta dourada e crocante. Servir imediatamente.",aviso:null}]},
+{id:"polvo",tag:"Parrilla",cat:"parrilla",titulo:"Polvo na Parrilla",callout:"Fogo alto, sem desculpa.",desc:"Polvo pré-cozido na pressão, marinado com páprica defumada, grelhado até a crosta rachar.",tempo:"~2h",meta:[["Equipamento","Parrilla"],["Acompanha","Batatas ao murro"]],tl:[{e:"Pressão",m:20},{e:"Marinada",m:60},{e:"Batatas",m:40},{e:"Parrilla",m:15}],etapas:[{n:1,nome:"Cozimento na pressão",t:"8–10 min",ing:[["Polvo congelado","1 un."],["Cebola ao meio","1 un."],["Louro","2 folhas"],["Sal","1 col. chá"],["Água","200ml"]],body:"Polvo congelado direto na panela. Aromáticos. 8–10 min após pressão. Separar tentáculos. Secar bem.",aviso:"Cozinhar congelado preserva a suculência. Secar para garantir crosta."},{n:2,nome:"Marinada",t:"30–60 min",ing:[["Azeite extra virgem","3 col. sopa"],["Suco de limão","1/2 un."],["Páprica defumada","1 col. chá"],["Sal e pimenta","a gosto"]],body:"Envolver tentáculos. Marinar 30–60 min.",aviso:null},{n:3,nome:"Batatas ao murro",t:"40 min",ing:[["Batatas médias","4–6 un."],["Azeite, sal grosso, ervas","a gosto"]],body:"Cozinhar até macias. Amassar levemente. Grelhar em fogo alto até crosta dourada.",aviso:null},{n:4,nome:"Parrilla — grelha final",t:"8–12 min",ing:null,body:"Fogo alto. 4–6 min de cada lado sem mexer até crosta dourada e caramelizada. Finalizar com azeite e limão.",aviso:"Não mover antes de soltar naturalmente da grelha."}]},
+{id:"lasanha",tag:"Massas",cat:"massas",titulo:"Lasanha à Bolognese",callout:"Ragù de duas horas. Vale cada minuto.",desc:"Ragù lento com tutano, béchamel clássico e massa fresca. Referência Evan Funke.",tempo:"~3h30",meta:[["Técnica","Massa fresca"],["Ragù","Mínimo 2h"]],tl:[{e:"Ragù",m:150},{e:"Béchamel",m:15},{e:"Montagem",m:20},{e:"Forno",m:40}],etapas:[{n:1,nome:"Ragù alla Bolognese",t:"2h30",ing:[["Carne moída (acém+peito)","500g"],["Pancetta","200g"],["Cebola","1 un."],["Aipo","2 talos"],["Cenoura","2 un."],["Extrato de tomate","2 col. sopa"],["Tomates pelados","400g"],["Vinho branco seco","1 copo"],["Leite integral","400ml"],["Tutano (opcional)","100g"]],body:"Dourar pancetta. Sofrito. Carne + tutano. Vinho — evaporar. Tomates + leite. Fogo baixo mínimo 2h.",aviso:"Não apressar — o tempo é o sabor."},{n:2,nome:"Béchamel",t:"15 min",ing:[["Manteiga","50g"],["Farinha","50g"],["Leite integral","500ml"]],body:"Roux. Leite aos poucos até liso e espesso. Temperar.",aviso:null},{n:3,nome:"Montagem",t:"20 min",ing:[["Massa fresca","500g"],["Parmigiano-Reggiano","a gosto"]],body:"Ragù no fundo. Massa → ragù → béchamel. Finalizar com Parmigiano generoso.",aviso:"Massa fresca: cozinhar 1–2 min antes de montar."},{n:4,nome:"Assar e descansar",t:"40 min + 15 min",ing:null,body:"180°C até dourado e borbulhante. Descansar 10–15 min antes de cortar.",aviso:null}]}
+];
 
 const chk={};
 R.forEach(r=>{chk[r.id]=new Array(r.etapas.length).fill(false)});
@@ -392,7 +531,11 @@ function setCat(c,btn){
   currentCat=c;
   document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
+  document.getElementById("detail").classList.remove("open");
+  document.getElementById("detail").innerHTML="";
+  document.getElementById("home").classList.remove("hidden");
   renderGrid();
+  window.scrollTo(0,0);
 }
 
 function renderGrid(){
@@ -403,11 +546,9 @@ function renderGrid(){
     return `<div class="card" onclick="openR('${r.id}')">
       <div class="card-tag">${r.tag}</div>
       <div class="card-title">${r.titulo}</div>
+      <div class="card-callout">${r.callout}</div>
       <div class="card-prog"><div class="card-prog-fill" style="width:${pct}%"></div></div>
-      <div class="card-meta">
-        <span class="badge badge-ok">Consolidada</span>
-        <span class="card-time">${r.tempo}</span>
-      </div>
+      <div class="card-time">${r.tempo}</div>
     </div>`;
   }).join("");
 }
@@ -416,9 +557,9 @@ function buildTL(r){
   const total=r.tl.reduce((a,t)=>a+t.m,0);
   const done=chk[r.id].filter(Boolean).length;
   return `<div class="tl-section">
-    <div class="tl-label-row">Linha do tempo</div>
+    <div class="tl-label">Linha do tempo</div>
     <div class="tl-track">${r.tl.map((t,i)=>{
-      const w=Math.max(36,Math.round(t.m/total*340));
+      const w=Math.max(40,Math.round(t.m/total*380));
       return `<div class="tl-step">
         <div class="tl-bar${i<done?' done':''}" style="width:${w}px"></div>
         <div class="tl-step-label">${t.e}</div>
@@ -433,7 +574,7 @@ function openR(id){
   const done=chk[r.id].filter(Boolean).length;
   const total=r.etapas.length;
   const pct=total?Math.round(done/total*100):0;
-
+  const metaHtml=r.meta.map(([l,v])=>`<div class="meta-item"><span class="meta-label">${l}</span><span class="meta-val">${v}</span></div>`).join("");
   const etHtml=r.etapas.map((e,i)=>{
     const isDone=chk[r.id][i];
     const ingH=e.ing?`<div class="ing-hdr">Ingredientes</div><table class="ing">${e.ing.map(([n,q])=>`<tr><td>${n}</td><td>${q}</td></tr>`).join("")}</table>`:'';
@@ -454,18 +595,16 @@ function openR(id){
 
   document.getElementById("detail").innerHTML=`
     <button class="back-btn" onclick="goHome()">← Voltar</button>
-    <div class="detail-eyebrow">${r.tag}</div>
+    <div class="detail-tag">${r.tag}</div>
     <h2 class="detail-title">${r.titulo}</h2>
+    <div class="detail-callout">${r.callout}</div>
     <p class="detail-desc">${r.desc}</p>
-    <div class="detail-meta">
-      <span class="badge badge-ok">Consolidada</span>
-      <span class="card-time">${r.tempo}</span>
-      ${r.meta.map(m=>`<span class="card-time">${m}</span>`).join("")}
-    </div>
+    <hr class="detail-rule">
+    <div class="detail-meta">${metaHtml}<div class="meta-item"><span class="meta-label">Tempo total</span><span class="meta-val">${r.tempo}</span></div></div>
     ${buildTL(r)}
     <div class="prog-row">
       <div class="prog-track"><div class="prog-fill" id="pf-${id}" style="width:${pct}%"></div></div>
-      <span class="prog-txt" id="pl-${id}">${done}/${total} etapas</span>
+      <span class="prog-txt" id="pl-${id}">${done} / ${total} etapas</span>
     </div>
     <div class="etapas">${etHtml}</div>
     <button class="reset-btn" onclick="resetR('${id}')">↺ reiniciar checklist</button>
@@ -477,10 +616,8 @@ function openR(id){
 
 function toggleEt(id,i){
   chk[id][i]=!chk[id][i];
-  const el=document.getElementById(`et-${id}-${i}`);
-  const bd=document.getElementById(`bd-${id}-${i}`);
-  el.classList.toggle("done",chk[id][i]);
-  bd.classList.toggle("open",chk[id][i]);
+  document.getElementById(`et-${id}-${i}`).classList.toggle("done",chk[id][i]);
+  document.getElementById(`bd-${id}-${i}`).classList.toggle("open",chk[id][i]);
   updateProg(id);
 }
 
@@ -490,10 +627,8 @@ function updateProg(id){
   const total=r.etapas.length;
   const pct=total?Math.round(done/total*100):0;
   document.getElementById(`pf-${id}`).style.width=pct+"%";
-  document.getElementById(`pl-${id}`).textContent=`${done}/${total} etapas`;
-  document.querySelectorAll(`#detail .tl-bar`).forEach((b,i)=>{
-    b.classList.toggle("done",i<done);
-  });
+  document.getElementById(`pl-${id}`).textContent=`${done} / ${total} etapas`;
+  document.querySelectorAll(`#detail .tl-bar`).forEach((b,i)=>b.classList.toggle("done",i<done));
 }
 
 function resetR(id){chk[id]=chk[id].map(()=>false);openR(id);}
