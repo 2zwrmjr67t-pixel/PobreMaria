@@ -13,16 +13,16 @@
   --bg:     #0E0C09;
   --bg2:    #161310;
   --bg3:    #1E1A15;
-  --gold:   #C8A96E;
-  --gold2:  #A8893E;
+  --gold:   #D4B87A;
+  --gold2:  #C0A050;
   --gold3:  #E8C98E;
-  --ash:    #7A6A55;
-  --ash2:   #5A4A35;
-  --cream:  #EDE0C8;
-  --cream2: #D4C4A4;
-  --line:   rgba(200,169,110,.12);
-  --line2:  rgba(200,169,110,.06);
-  --warn:   #B85A20;
+  --ash:    #B0A080;
+  --ash2:   #8A7A60;
+  --cream:  #F0E6D0;
+  --cream2: #E0D0B0;
+  --line:   rgba(200,169,110,.18);
+  --line2:  rgba(200,169,110,.10);
+  --warn:   #E07030;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -385,15 +385,15 @@ main {
 }
 .etapa-nome {
   font-family: 'EB Garamond', serif;
-  font-size: 15px;
-  color: var(--cream2);
+  font-size: 16px;
+  color: var(--cream);
   flex: 1;
   letter-spacing: .02em;
 }
 .etapa-tempo {
   font-family: 'EB Garamond', serif;
-  font-size: 11px;
-  color: var(--ash2);
+  font-size: 12px;
+  color: var(--ash);
   flex-shrink: 0;
   letter-spacing: .08em;
 }
@@ -406,30 +406,45 @@ main {
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--gold2);
-  margin: 6px 0 6px;
+  margin: 8px 0 6px;
 }
-table.ing { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+table.ing { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+.ing-row { cursor: pointer; transition: opacity .15s; }
+.ing-row:hover { opacity: .85; }
+.ing-row td { transition: color .2s; }
+.ing-row.checked td { color: var(--ash2); text-decoration: line-through; opacity: .5; }
+.ing-chk {
+  width: 12px; height: 12px;
+  border: 1px solid var(--ash2);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 8px; color: transparent;
+  margin-right: 8px;
+  flex-shrink: 0;
+  vertical-align: middle;
+  transition: all .15s;
+}
+.ing-row.checked .ing-chk { background: var(--gold2); border-color: var(--gold2); color: var(--bg); }
 table.ing td {
   font-family: 'EB Garamond', serif;
-  font-size: 13px;
-  padding: 4px 0;
+  font-size: 15px;
+  padding: 6px 0;
   border-bottom: 1px solid var(--line2);
   color: var(--ash);
 }
 table.ing td:last-child { text-align: right; color: var(--cream2); }
 .body-txt {
   font-family: 'EB Garamond', serif;
-  font-size: 14px;
-  color: var(--ash);
-  line-height: 1.7;
-  margin-bottom: 6px;
+  font-size: 15px;
+  color: var(--cream2);
+  line-height: 1.75;
+  margin-bottom: 8px;
 }
 .aviso-txt {
   font-family: 'Cormorant', serif;
-  font-size: 13px;
+  font-size: 14px;
   font-style: italic;
   color: var(--warn);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .reset-btn {
@@ -511,7 +526,7 @@ footer {
 
 <script>
 const R=[
-{id:"cuca-goiabada",tag:"Panificação",cat:"panificacao",titulo:"Cuca de Goiabada Cremosa",callout:"Molhada por dentro, crocante por fora.",desc:"Fermentação fria noturna. Massa aveludada, bolsões de goiabada, farofa com raspas de limão.",tempo:"14h",meta:[["Forma","20×30 cm"],["Fermentação","Noturna"]],tl:[{e:"Esponja",m:45},{e:"Massa",m:20},{e:"Ferm.",m:60},{e:"Goiabada",m:15},{e:"Geladeira",m:480},{e:"Assar",m:35}],etapas:[{n:1,nome:"Esponja — noite",t:"30–45 min",ing:[["Farinha de trigo","100g"],["Leite morno","100g"],["Fermento biológico seco","4g"],["Açúcar","15g"]],body:"Misturar até creme espesso. Cobrir frouxamente. Aguardar 30–45 min até bolhas abundantes.",aviso:"Não deixar colapsar."},{n:2,nome:"Massa principal",t:"20 min",ing:[["Farinha (Veneranda ou Orquídea)","140g"],["Ovo","1 un."],["Açúcar","40g"],["Manteiga derretida","50g"],["Creme de leite (Nestlé lata)","35g"],["Leite","20g"]],body:"Misturar esponja + ovo + açúcar + manteiga + creme + leite. Adicionar farinha. Sovar 10–12 min à mão / 6–8 min com gancho.",aviso:"Não corrigir com farinha excessiva."},{n:3,nome:"Fermentação parcial",t:"45–75 min",ing:null,body:"Crescimento alvo: 50–60%. Ponto: viva, levemente inflada, ainda firme.",aviso:"Não dobrar antes da geladeira."},{n:4,nome:"Goiabada cremosa",t:"15 min",ing:[["Goiabada (Petry)","220g"],["Água","60g"],["Manteiga","15g"],["Flor de sal","0,5g"]],body:"Fogo baixo até creme brilhante, espesso e sedoso. Flor de sal: abrir o buquê da goiaba, não temperar.",aviso:"Esfriar até ≤30°C antes de montar."},{n:5,nome:"Farofa",t:"10 min",ing:[["Farinha de trigo","100g"],["Açúcar","60g"],["Manteiga gelada","60g"],["Raspas de limão siciliano","3g"],["Canela","a gosto"]],body:"Misturar até grumos grandes, úmidos, amanteigados. Levar à geladeira.",aviso:null},{n:6,nome:"Montagem",t:"10 min",ing:null,body:"Forma untada. Massa → goiabada em colheradas (bolsões) → farofa.",aviso:null},{n:7,nome:"Geladeira",t:"8–12h",ing:null,body:"Cobrir com filme. 3–5°C por 8–12 horas.",aviso:null},{n:8,nome:"Manhã seguinte",t:"45–60 min",ing:null,body:"Retirar 45–60 min antes de assar. Pré-aquecer forno.",aviso:"Não esperar crescimento exagerado."},{n:9,nome:"Assar",t:"30–35 min",ing:null,body:"190°C · 30–35 min · dourado profundo, farofa firme.",aviso:null}]},
+{id:"cuca-goiabada",tag:"Panificação",cat:"panificacao",titulo:"Cuca de Goiabada Cremosa",callout:"Molhada por dentro, crocante por fora.",desc:"Fermentação fria noturna. Massa aveludada, bolsões de goiabada, farofa com raspas de limão.",tempo:"14h",meta:[["Forma","20×30 cm"],["Fermentação","Noturna"]],tl:[{e:"Esponja",m:45},{e:"Massa",m:20},{e:"Ferm.",m:60},{e:"Goiabada",m:15},{e:"Geladeira",m:480},{e:"Assar",m:35}],etapas:[{n:1,nome:"Esponja — noite",t:"30–45 min",ing:[["Farinha de trigo","100g"],["Leite morno","100g"],["Fermento biológico seco","4g"],["Açúcar","15g"]],body:"Misturar até creme espesso. Cobrir frouxamente. Aguardar 30–45 min até bolhas abundantes.",aviso:"Não deixar colapsar."},{n:2,nome:"Massa principal",t:"20 min",ing:[["Farinha (Veneranda ou Orquídea)","140g"],["Ovo","1 un."],["Açúcar","40g"],["Manteiga derretida","50g"],["Creme de leite (Nestlé lata)","35g"],["Leite","20g"],["Sal","1 pitada generosa"]],body:"Misturar esponja + ovo + açúcar + manteiga + creme + leite. Adicionar farinha. Sovar 10–12 min à mão / 6–8 min com gancho.",aviso:"Não corrigir com farinha excessiva."},{n:3,nome:"Fermentação parcial",t:"45–75 min",ing:null,body:"Crescimento alvo: 50–60%. Ponto: viva, levemente inflada, ainda firme.",aviso:"Não dobrar antes da geladeira."},{n:4,nome:"Goiabada cremosa",t:"15 min",ing:[["Goiabada (Petry)","220g"],["Água","60g"],["Manteiga","15g"],["Flor de sal","0,5g"]],body:"Fogo baixo até creme brilhante, espesso e sedoso. Flor de sal: abrir o buquê da goiaba, não temperar.",aviso:"Esfriar até ≤30°C antes de montar."},{n:5,nome:"Farofa",t:"10 min",ing:[["Farinha de trigo","100g"],["Açúcar","60g"],["Manteiga gelada","60g"],["Raspas de limão siciliano","3g"],["Canela","a gosto"]],body:"Misturar até grumos grandes, úmidos, amanteigados. Levar à geladeira.",aviso:null},{n:6,nome:"Montagem",t:"10 min",ing:null,body:"Forma untada. Massa → goiabada em colheradas (bolsões) → farofa.",aviso:null},{n:7,nome:"Geladeira",t:"8–12h",ing:null,body:"Cobrir com filme. 3–5°C por 8–12 horas.",aviso:null},{n:8,nome:"Manhã seguinte",t:"45–60 min",ing:null,body:"Retirar 45–60 min antes de assar. Pré-aquecer forno.",aviso:"Não esperar crescimento exagerado."},{n:9,nome:"Assar",t:"30–35 min",ing:null,body:"190°C · 30–35 min · dourado profundo, farofa firme.",aviso:null}]},
 {id:"cinnamon-roll",tag:"Panificação",cat:"panificacao",titulo:"Cinnamon Roll com Esponja",callout:"Canela, manteiga e paciência.",desc:"Esponja pré-fermentada, massa macia, recheio generoso de açúcar mascavo e canela.",tempo:"4h (ou 14h fria)",meta:[["Rende","8–10 un."],["Opção","Ferm. fria"]],tl:[{e:"Esponja",m:45},{e:"Massa",m:20},{e:"1ª Ferm.",m:90},{e:"Montagem",m:15},{e:"2ª Ferm.",m:90},{e:"Assar",m:25}],etapas:[{n:1,nome:"Esponja",t:"30–45 min",ing:[["Farinha de trigo","100g"],["Leite morno","100ml"],["Fermento biológico seco","5g"],["Açúcar","15g"]],body:"Misturar até creme espesso. Cobrir frouxamente. Aguardar 30–45 min até bolhas abundantes.",aviso:"Não deixar colapsar antes de usar."},{n:2,nome:"Massa principal",t:"20 min",ing:[["Esponja (toda)","—"],["Farinha de trigo","350g"],["Açúcar","60g"],["Sal","8g"],["Leite morno","100ml"],["Manteiga derretida","60g"],["Ovo","1 un."]],body:"Esponja + leite + manteiga + ovo + açúcar. Farinha, por último o sal. Sovar 8–10 min.",aviso:"Massa levemente úmida é o ponto correto."},{n:3,nome:"Primeira fermentação",t:"1h–1h30",ing:null,body:"Cobrir e deixar em local morno até dobrar.",aviso:"Não apressar."},{n:4,nome:"Recheio",t:"5 min",ing:[["Manteiga amolecida","100g"],["Açúcar mascavo","200g"],["Canela em pó","2 col. sopa"]],body:"Misturar até pasta homogênea.",aviso:null},{n:5,nome:"Montagem",t:"15 min",ing:null,body:"Abrir massa 40×30cm, 0,5cm. Espalhar recheio. Enrolar. Cortar fatias 5cm.",aviso:null},{n:6,nome:"Segunda fermentação",t:"1h–1h30",ing:null,body:"Cobrir e aguardar crescimento visível.",aviso:"Para sabor complexo: geladeira 8–12h. Retirar 1h antes."},{n:7,nome:"Assar",t:"20–25 min",ing:null,body:"180°C por 20–25 min até dourados.",aviso:"Interior deve permanecer macio."},{n:8,nome:"Glacê de baunilha",t:"5 min",ing:[["Açúcar de confeiteiro","150g"],["Leite","2–3 col. sopa"],["Extrato de baunilha","1/2 col. chá"]],body:"Misturar até glacê suave. Regar os rolls ainda quentes.",aviso:null}]},
 {id:"medialunas",tag:"Panificação",cat:"panificacao",titulo:"Medialunas de Manteca",callout:"Panadería de domingo de manhã.",desc:"Croissant argentino laminado com esponja. Camadas folhadas, miolo macio.",tempo:"~16h",meta:[["Fermentação","Noturna"],["Técnica","Laminação"]],tl:[{e:"Esponja",m:45},{e:"Massa",m:60},{e:"Laminação",m:180},{e:"Modelagem",m:30},{e:"Ferm.",m:480},{e:"Assar",m:20}],etapas:[{n:1,nome:"Esponja",t:"30–45 min",ing:[["Farinha de trigo","100g"],["Leite morno","100ml"],["Fermento biológico seco","10g"],["Açúcar","15g"]],body:"Misturar, cobrir. Aguardar triplicar de volume com bolhas abundantes.",aviso:null},{n:2,nome:"Massa principal",t:"20 min + 45 min",ing:[["Esponja (toda)","—"],["Farinha de trigo","400g"],["Açúcar","85g"],["Sal","10g"],["Ovos","2 un."],["Leite","100ml"],["Manteiga derretida","75g"]],body:"Esponja + leite + ovos + manteiga + açúcar. Farinha, por último o sal. Sovar 8–10 min. Descansar 45 min.",aviso:null},{n:3,nome:"Laminação",t:"3h",ing:[["Manteiga fria","250g"]],body:"Modelar manteiga 18cm. Abrir massa 40×25cm. Carta em três. Dobrar, girar 90°. Geladeira 1h. Repetir 2 vezes.",aviso:"Dia quente: 10 min de freezer antes de cada dobra."},{n:4,nome:"Modelagem",t:"30 min",ing:null,body:"Abrir 1cm. Triângulos 10–12cm base. Enrolar da base à ponta.",aviso:null},{n:5,nome:"Fermentação fria",t:"8–12h",ing:null,body:"Geladeira 8–12h. Retirar 1h antes de assar.",aviso:"Alternativa: local morno 2h."},{n:6,nome:"Assar",t:"15–20 min",ing:null,body:"185°C. Pincelar ovo + leite. 15–20 min até dourar.",aviso:null},{n:7,nome:"Calda de brilho",t:"5 min",ing:[["Açúcar","50g"],["Água","50ml"]],body:"Ferver até dissolver. Pincelar sobre as medialunas quentes.",aviso:null}]},
 {id:"conitos",tag:"Confeitaria",cat:"confeitaria",titulo:"Conitos Estilo Cachafaz",callout:"Buenos Aires em cada mordida.",desc:"Biscoito amanteigado com fubá, cone de doce de leite firme, mergulhado em chocolate.",tempo:"~1h30",meta:[["Rende","12–14 un."]],tl:[{e:"Base",m:20},{e:"Assar",m:10},{e:"Esfriar",m:30},{e:"Recheio",m:15},{e:"Freezer",m:15},{e:"Cobertura",m:10}],etapas:[{n:1,nome:"Base — biscoito",t:"20 min",ing:[["Manteiga sem sal","90g"],["Açúcar de confeiteiro","60g"],["Gema","1 un."],["Essência de baunilha","1 col. chá"],["Mel claro","1 col. sopa"],["Farinha de trigo","80g"],["Fubá fino","40g"],["Amido de milho","40g"],["Fermento químico","1 col. chá"],["Sal","pitada"]],body:"Bater manteiga + açúcar. Gema, baunilha, mel. Peneirar secos. Abrir 0,5cm. Cortar círculos 4cm.",aviso:null},{n:2,nome:"Assar a base",t:"8–10 min",ing:null,body:"170°C por 8–10 min.",aviso:"Não dourar. Esfriar completamente."},{n:3,nome:"Recheio — cone",t:"15 min + 15 min freezer",ing:[["Doce de leite firme argentino","300g"]],body:"Saco de confeitar, bico liso. Cone 4–5cm sobre cada base. Freezer 15 min.",aviso:null},{n:4,nome:"Cobertura de chocolate",t:"10 min",ing:[["Chocolate cobertura meio amargo","300g"],["Manteiga de cacau","1 col. sopa"]],body:"Derreter chocolate. Mergulhar cones. Cristalizar sobre papel manteiga.",aviso:null}]},
@@ -525,7 +540,11 @@ const R=[
 ];
 
 const chk={};
-R.forEach(r=>{chk[r.id]=new Array(r.etapas.length).fill(false)});
+const ingChk={};
+R.forEach(r=>{
+  chk[r.id]=new Array(r.etapas.length).fill(false);
+  ingChk[r.id]=r.etapas.map(e=>e.ing?new Array(e.ing.length).fill(false):[]);
+});
 let currentCat="todas";
 
 function setCat(c,btn){
@@ -578,7 +597,7 @@ function openR(id){
   const metaHtml=r.meta.map(([l,v])=>`<div class="meta-item"><span class="meta-label">${l}</span><span class="meta-val">${v}</span></div>`).join("");
   const etHtml=r.etapas.map((e,i)=>{
     const isDone=chk[r.id][i];
-    const ingH=e.ing?`<div class="ing-hdr">Ingredientes</div><table class="ing">${e.ing.map(([n,q])=>`<tr><td>${n}</td><td>${q}</td></tr>`).join("")}</table>`:'';
+    const ingH=e.ing?`<div class="ing-hdr">Ingredientes</div><table class="ing">${e.ing.map(([n,q],ii)=>`<tr class="ing-row" id="ir-${id}-${i}-${ii}" onclick="toggleIng('${id}',${i},${ii})"><td><span class="ing-chk">✓</span>${n}</td><td>${q}</td></tr>`).join("")}</table>`:'';
     return `<div class="etapa${isDone?' done':''}" id="et-${id}-${i}">
       <div class="etapa-hdr" onclick="toggleEt('${id}',${i})">
         <div class="chk">✓</div>
@@ -632,7 +651,17 @@ function updateProg(id){
   document.querySelectorAll(`#detail .tl-bar`).forEach((b,i)=>b.classList.toggle("done",i<done));
 }
 
-function resetR(id){chk[id]=chk[id].map(()=>false);openR(id);}
+function toggleIng(id,i,ii){
+  ingChk[id][i][ii]=!ingChk[id][i][ii];
+  document.getElementById(`ir-${id}-${i}-${ii}`).classList.toggle("checked",ingChk[id][i][ii]);
+}
+
+function resetR(id){
+  chk[id]=chk[id].map(()=>false);
+  ingChk[id]=R.find(x=>x.id===id).etapas.map(e=>e.ing?new Array(e.ing.length).fill(false):[]);
+  openR(id);
+}
+
 function goHome(){
   document.getElementById("detail").classList.remove("open");
   document.getElementById("detail").innerHTML="";
