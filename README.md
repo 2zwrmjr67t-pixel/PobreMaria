@@ -1,58 +1,24 @@
 # Pobre Maria
 ### Gastronomia com Identidade
 
-Receituário pessoal em desenvolvimento contínuo. Sul do Brasil, influências gaúchas, argentinas e uruguaias.
+Receituário pessoal da Família Marques Silva. Sul do Brasil, influências gaúchas, argentinas e uruguaias.
 
----
+Site: https://2zwrmjr67t-pixel.github.io/PobreMaria/
 
-## Estrutura
+## Estrutura (v2 · nov/2026)
 
 ```
-pobre-maria/
-├── index.html          ← site principal (GitHub Pages)
-├── README.md
-└── receitas/           ← fonte de cada receita em txt
-    ├── cuca-goiabada-cremosa.txt
-    ├── cinnamon-roll.txt
-    ├── medialunas-manteca.txt
-    ├── conitos-cachafaz.txt
-    ├── torta-frutas-vermelhas.txt
-    ├── crumble-morango.txt
-    ├── petit-gateau-doce-leite.txt
-    ├── creme-brulee-doce-leite.txt
-    ├── polvo-parrilla.txt
-    └── lasanha-bolognese.txt
+index.html      ← site (layout editorial com fotos)
+receitas.js     ← dados das receitas exibidas no site
+fotos/          ← fotos das receitas (sem EXIF/GPS), <id>-1.jpg = capa
+receitas/       ← cada receita em .md, padrão em receitas/_PADRAO.md
+v1/             ← versão anterior do site, guardada como referência
 ```
 
-## Receitas — v1
+Receitas são cadastradas e editadas pelo Claude, a pedido do João: o .md é revisado e o `receitas.js` atualizado junto.
 
-| Receita | Categoria | Tempo |
-|---|---|---|
-| Cuca de Goiabada Cremosa | Panificação | 14h |
-| Cinnamon Roll com Esponja | Panificação | 4h (ou 14h fria) |
-| Medialunas de Manteca | Panificação | ~16h |
-| Conitos Estilo Cachafaz | Confeitaria | ~1h30 |
-| Torta de Frutas Vermelhas | Confeitaria | ~3h30 |
-| Crumble de Morango com Farofa | Sobremesa | ~45 min |
-| Petit Gateau de Doce de Leite | Sobremesa | ~30 min |
-| Crème Brûlée de Doce de Leite | Sobremesa | ~2h30 |
-| Polvo na Parrilla | Parrilla | ~2h |
-| Lasanha à Bolognese | Massas | ~3h30 |
-| Brownie com Frutas Vermelhas e Chocolate Branco | Sobremesa | ~1h |
+## Princípios técnicos
 
-## Princípios Técnicos
-
-- **Flor de sal como amplificador, nunca como competidor.** Dose mínima, ponto único, impacto máximo.
-- **Farinha por tipo de preparo:** Caputo Cuoco → massa fresca, pizza, pão. Tipo 1 (Veneranda/Orquídea) → massas enriquecidas. Farinha fraca/amido → bolos e brownies.
-- **Fermentação fria como estrutura, não adaptação.** Nas receitas com overnight, o frio é parte do processo — não atalho.
-
-## Em fila
-
-- Cuca de banana-passa com especiarias
-- Cuca com doce de leite artesanal
-- Pães de fermentação longa (levain)
-- Sobremesas em ferro fundido
-
----
-
-*v1 · jun/2026*
+- Tudo em gramas; líquidos 1:1.
+- **Flor de sal como amplificador, nunca como competidor.** Dose mínima, ponto único.
+- **Fermentação fria como estrutura, não adaptação.**
