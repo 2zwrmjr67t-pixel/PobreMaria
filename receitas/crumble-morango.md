@@ -1,5 +1,5 @@
 # Crumble de Morango com Farofa
-Sobremesa · ~45 min · 2 pessoas · Ferro fundido · **Status: em validação**
+Sobremesa · ~45 min · 2 pessoas · Ferro fundido · **Status: validada (25/11/2026)**
 > Frigideira de ferro, farofa crocante.
 
 ## Etapa 1 — Frutas na panela de ferro (~25 min com maceração)
@@ -22,9 +22,10 @@ Sobremesa · ~45 min · 2 pessoas · Ferro fundido · **Status: em validação**
 | Sal | pitada |
 | Canela | ~1 g (½ col. chá) |
 1. Esfarinhar a manteiga com os secos.
-2. 180°C por 20–25 min, mexendo na metade. Esfriar completamente.
+2. Assar à parte, em assadeira, a 180°C por ~20 min (a calibrar), mexendo na metade. Esfriar completamente.
+3. Servir: frutas mornas da frigideira de ferro e farofa crocante por cima.
 ⚠ Fica crocante ao esfriar — não servir quente.
 
 ## Pendências
 - Farofa única (a antiga A), mantida como estava no app. A farofa B foi retirada.
-- A fonte não diz como montar e assar o crumble (farofa sobre as frutas? volta ao forno?).
+- Método definido: frutas no fogão, farofa assada à parte, montagem na hora.
