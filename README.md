@@ -38,6 +38,7 @@ pobre-maria/
 | Crème Brûlée de Doce de Leite | Sobremesa | ~2h30 |
 | Polvo na Parrilla | Parrilla | ~2h |
 | Lasanha à Bolognese | Massas | ~3h30 |
+| Brownie com Frutas Vermelhas e Chocolate Branco | Sobremesa | ~1h |
 
 ## Princípios Técnicos
 
