@@ -90,8 +90,18 @@ body.reading #detail{display:block}
 .meta{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:22px 0}
 .meta div{padding:12px 18px 12px 0;margin-right:18px}
 .meta b{display:block;font-weight:500;font-size:17px}
-.gallery{display:flex;gap:10px;overflow-x:auto;margin:0 0 8px;scrollbar-width:none}
-.gallery img{height:150px;width:auto;border-radius:3px;flex:none}
+.slides{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:pointer}
+.slides::-webkit-scrollbar{display:none}
+.slides img{flex:none;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
+.dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:7px;pointer-events:none}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,253,248,.55)}
+.dots i.on{background:#FFFDF8}
+.toggle{display:flex;align-items:baseline;justify-content:space-between;width:100%;text-align:left}
+.toggle .car{display:inline-block;margin-left:8px;font-size:18px;color:var(--terra);transition:transform .2s}
+.toggle.open .car{transform:rotate(90deg)}
+.ing-body{display:none}
+.ing-body.open{display:block}
+.step.done .step-b > :not(.check){display:none}
 .body-w{max-width:720px;margin:0 auto}
 .sec{margin:30px 0 0}
 .sec-h{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:6px}
@@ -166,7 +176,7 @@ const esc=(s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;
 
 let cat="todas", query="";
 const st={}; // estado do checklist por receita
-const S=(id)=>st[id]||(st[id]={steps:{},ings:{},mult:1});
+const S=(id)=>st[id]||(st[id]={steps:{},ings:{},mult:1,ingOpen:false});
 
 
 function phHTML(r,big){
@@ -205,7 +215,7 @@ function scaleQty(q,m){
 function renderDetail(id){
   const r=R.find(x=>x.id===id); if(!r){location.hash="";return}
   const s=S(id), f=FOTOS[id]||[];
-  const total=r.etapas.length, done=Object.values(s.steps).filter(Boolean).length;
+  const nIng=r.etapas.reduce((a,e)=>a+(e.ing?e.ing.length:0),0), total=r.etapas.length, done=Object.values(s.steps).filter(Boolean).length;
   const ingGroups=r.etapas.filter(e=>e.ing).map((e,gi)=>`
     <div class="ing-g"><span class="sc">${esc(e.nome)}</span>
       ${e.ing.map((ig,ii)=>{const k=e.n+"-"+ii;return `<button class="row${s.ings[k]?" done":""}" data-ing="${k}"><span>${esc(ig[0])}</span><span class="q">${esc(scaleQty(ig[1],s.mult))}</span></button>`}).join("")}
@@ -221,7 +231,7 @@ function renderDetail(id){
       </div>
     </div>`).join("");
   document.getElementById("detail").innerHTML=`
-    <div class="d-hero">${phHTML(r,true)}
+    <div class="d-hero">${f.length>1?`<div class="slides" id="slides">${f.map((x,i)=>`<img src="${foto(x)}" alt="${esc(r.titulo)} — foto ${i+1}" loading="${i?"lazy":"eager"}">`).join("")}</div><div class="dots">${f.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join("")}</div>`:phHTML(r,true)}
       <a class="d-back" href="#">‹ Receitas</a>
     </div>
     <div class="d-head">
@@ -230,15 +240,15 @@ function renderDetail(id){
       <p class="callout">${esc(r.callout)}</p>
       <p class="desc">${esc(r.desc)}</p>
       <div class="meta">${r.meta.map(([l,v])=>`<div><span class="sc">${esc(l)}</span><b>${esc(v)}</b></div>`).join("")}<div><span class="sc">Tempo total</span><b>${esc(r.tempo)}</b></div></div>
-      ${f.length>1?`<div class="gallery">${f.slice(1).map(x=>`<img src="${foto(x)}" alt="" loading="lazy">`).join("")}</div>`:""}
     </div>
     <div class="body-w">
       ${HIST[id]?`<section class="sec"><div class="sec-h"><h2>História do prato</h2></div><p class="story">${esc(HIST[id])}</p></section>`:""}
       <section class="sec">
-        <div class="sec-h"><h2>Ingredientes</h2>
-          <div class="scale">${[0.5,1,1.5,2].map(m=>`<button data-m="${m}" class="${s.mult===m?"on":""}">${String(m).replace(".",",")}×</button>`).join("")}</div>
+        <div class="sec-h"><button class="toggle${s.ingOpen?" open":""}" id="ingtog"><h2>Ingredientes<span class="car">›</span></h2><span class="prog">${nIng} itens</span></button></div>
+        <div class="ing-body${s.ingOpen?" open":""}" id="ingbody">
+          <div class="scale" style="margin:12px 0 2px">${[0.5,1,1.5,2].map(m=>`<button data-m="${m}" class="${s.mult===m?"on":""}">${String(m).replace(".",",")}×</button>`).join("")}</div>
+          ${ingGroups}
         </div>
-        ${ingGroups}
       </section>
       <section class="sec">
         <div class="sec-h"><h2>Preparo</h2><span class="prog">${done} de ${total} etapas</span></div>
@@ -261,10 +271,13 @@ document.addEventListener("click",e=>{
   const ig=e.target.closest("[data-ing]"); if(ig){s.ings[ig.dataset.ing]=!s.ings[ig.dataset.ing];ig.classList.toggle("done");return}
   const sp=e.target.closest("[data-step]"); if(sp){s.steps[sp.dataset.step]=!s.steps[sp.dataset.step];const y=scrollY;renderDetail(id);scrollTo(0,y);return}
   const mb=e.target.closest("[data-m]"); if(mb){s.mult=+mb.dataset.m;const y=scrollY;renderDetail(id);scrollTo(0,y);return}
-  if(e.target.closest("#reset")){st[id]={steps:{},ings:{},mult:1};renderDetail(id)}
+  if(e.target.closest("#ingtog")){s.ingOpen=!s.ingOpen;document.getElementById("ingtog").classList.toggle("open",s.ingOpen);document.getElementById("ingbody").classList.toggle("open",s.ingOpen);return}
+  const sl=e.target.closest("#slides"); if(sl){const n=sl.children.length,i=Math.round(sl.scrollLeft/sl.clientWidth);sl.scrollTo({left:((i+1)%n)*sl.clientWidth,behavior:"smooth"});return}
+  if(e.target.closest("#reset")){st[id]={steps:{},ings:{},mult:1,ingOpen:false};renderDetail(id)}
 });
 document.getElementById("sbtn").onclick=()=>{const b=document.getElementById("sbox");b.classList.toggle("open");if(b.classList.contains("open")){if(location.hash)location.hash="";document.getElementById("q").focus()}};
 document.getElementById("q").oninput=e=>{query=e.target.value;renderHome()};
+document.addEventListener("scroll",e=>{const sl=e.target;if(!sl||sl.id!=="slides")return;const i=Math.round(sl.scrollLeft/sl.clientWidth);sl.parentNode.querySelectorAll(".dots i").forEach((d,k)=>d.classList.toggle("on",k===i))},true);
 window.addEventListener("hashchange",route);
 route();
 </script>
