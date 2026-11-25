@@ -6,11 +6,11 @@ Sobremesa · ~45 min · 2 pessoas · Ferro fundido · **Status: em validação**
 | Morangos cortados ao meio | 250 g (1 caixinha) |
 |---|---|
 | Manteiga sem sal | ~14 g (1 col. sopa) |
-| Açúcar cristal ou demerara | ~12 g (1 col. sopa) |
+| Açúcar cristal ou demerara | ~12 g (1 col. sopa), dividido em 2 |
 | Suco de limão (ou balsâmico suave) | ~8 g (¼ de limão) |
 | Cachaça envelhecida (opcional — Weber Haus, Casa Buchmann) | ~5 g (1 col. chá) |
-1. Deixar os morangos com o açúcar 20 min antes. Aquecer bem a frigideira ou panela de ferro.
-2. Derreter a manteiga, adicionar o açúcar e deixar começar a caramelizar (1 min).
+1. Deixar os morangos com **metade** do açúcar 20 min antes. Aquecer bem a frigideira ou panela de ferro.
+2. Derreter a manteiga, adicionar a **outra metade** do açúcar e deixar começar a caramelizar (1 min).
 3. Juntar os morangos e mexer 2–3 min, até soltarem suco mas manterem a forma.
 4. Finalizar com limão (e cachaça) e reduzir até calda leve. Desligar e reservar.
 
@@ -26,6 +26,5 @@ Sobremesa · ~45 min · 2 pessoas · Ferro fundido · **Status: em validação**
 ⚠ Fica crocante ao esfriar — não servir quente.
 
 ## Pendências
-- A fonte usa o açúcar duas vezes (macerar e caramelizar) com a mesma medida. É 1 col. sopa no total ou em cada momento?
 - Farofa única (a antiga A), mantida como estava no app. A farofa B foi retirada.
 - A fonte não diz como montar e assar o crumble (farofa sobre as frutas? volta ao forno?).
