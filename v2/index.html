@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pobre Maria</title>
+<meta name="theme-color" content="#FAF6EE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* Layout: barra fina no topo, destaque com foto, filtros em uma linha, grade de fotos 4:5.
+   Receita: foto de ponta a ponta, meta, porções, ingredientes e etapas com checklist. */
+:root{
+  --bg:#FAF6EE; --paper:#FFFDF8; --sand:#E9E1D3; --line:#D9CDB8;
+  --ink:#2B2320; --soft:#6B5D4F; --muted:#8A7A66;
+  --wine:#5C1220; --olive:#5B6B3A; --terra:#B0683F;
+  --display:"Cormorant Garamond",Georgia,serif;
+  --body:"EB Garamond",Georgia,serif;
+  --pad:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.5}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+.sc{font-family:var(--body);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* Topo */
+.top{position:sticky;top:0;z-index:20;background:rgba(250,246,238,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-in{max-width:1180px;margin:0 auto;padding:12px var(--pad);display:flex;align-items:center;gap:12px}
+.mark{font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:.02em;text-decoration:none;color:var(--ink)}
+.mark i{color:var(--wine);font-weight:500}
+.top-sp{flex:1}
+.icon-btn{width:40px;height:40px;display:grid;place-items:center;border-radius:50%}
+.icon-btn:hover{background:var(--sand)}
+.icon-btn svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.5}
+.search{max-width:1180px;margin:0 auto;padding:0 var(--pad) 12px;display:none}
+.search.open{display:block}
+.search input{width:100%;font:inherit;font-size:17px;padding:10px 14px;border:1px solid var(--line);background:var(--paper);border-radius:2px;color:var(--ink)}
+.search input:focus{outline:2px solid var(--olive);outline-offset:1px}
+
+main{max-width:1180px;margin:0 auto;padding:0 var(--pad) 64px}
+
+/* Destaque */
+.hero{position:relative;margin:20px 0 8px;border-radius:3px;overflow:hidden;background:var(--sand);aspect-ratio:4/5;max-height:72vh;width:100%;display:block;text-align:left}
+@media(min-width:760px){.hero{aspect-ratio:16/8}}
+.hero img{width:100%;height:100%;object-fit:cover}
+.hero-txt{position:absolute;inset:auto 0 0 0;padding:22px var(--pad) 22px;background:linear-gradient(to top,rgba(30,20,16,.82),rgba(30,20,16,0));color:#FFFDF8}
+.hero-txt .sc{color:rgba(255,253,248,.8)}
+.hero-txt h2{font-family:var(--display);font-weight:600;font-size:clamp(30px,6vw,52px);line-height:1.02;margin:6px 0 4px}
+.hero-txt p{font-style:italic;opacity:.9}
+
+/* Filtros */
+.filters{display:flex;gap:6px;overflow-x:auto;padding:18px 0 14px;scrollbar-width:none;border-bottom:1px solid var(--line);margin-bottom:22px}
+.filters::-webkit-scrollbar{display:none}
+.chip{flex:none;font-size:15px;padding:6px 14px;border:1px solid var(--line);border-radius:99px;color:var(--soft);background:transparent}
+.chip.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+
+/* Grade */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 14px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr);gap:34px 22px}}
+@media(min-width:1080px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{display:block;text-decoration:none;text-align:left;width:100%}
+.ph{position:relative;aspect-ratio:4/5;border-radius:3px;overflow:hidden;background:var(--sand)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card:hover .ph img{transform:scale(1.03)}
+.ph-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);border-radius:3px}
+.ph-empty b{font-family:var(--display);font-size:46px;font-weight:500;color:var(--terra);line-height:1}
+.ph-empty span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.fav-dot{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:rgba(255,253,248,.9);display:grid;place-items:center}
+.fav-dot svg{width:14px;height:14px;fill:var(--wine);stroke:none}
+.card .sc{display:block;margin:10px 0 2px}
+.card h3{font-family:var(--display);font-size:21px;font-weight:600;line-height:1.12}
+.card .t{font-size:14px;color:var(--muted);margin-top:3px}
+.empty{color:var(--muted);font-style:italic;padding:30px 0}
+
+/* Receita */
+#detail{display:none}
+body.reading #home{display:none}
+body.reading #detail{display:block}
+.d-hero{position:relative;margin:0 calc(var(--pad)*-1);background:var(--sand);aspect-ratio:4/5;max-height:78vh;overflow:hidden}
+@media(min-width:760px){.d-hero{margin:20px 0 0;border-radius:3px;aspect-ratio:16/9}}
+.d-hero img{width:100%;height:100%;object-fit:cover}
+.d-hero .ph-empty{border:0}
+.d-back{position:absolute;top:12px;left:12px;background:rgba(255,253,248,.92);border-radius:99px;padding:6px 14px 6px 10px;font-size:15px;display:flex;align-items:center;gap:4px}
+.d-fav{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;background:rgba(255,253,248,.92);display:grid;place-items:center}
+.d-fav svg{width:20px;height:20px;stroke:var(--wine);stroke-width:1.5;fill:none}
+.d-fav.on svg{fill:var(--wine)}
+.d-head{max-width:720px;margin:0 auto;padding-top:24px}
+.d-head h1{font-family:var(--display);font-weight:600;font-size:clamp(34px,7vw,56px);line-height:1;margin:8px 0 10px}
+.callout{font-family:var(--display);font-style:italic;font-size:22px;color:var(--terra);line-height:1.25}
+.desc{color:var(--soft);margin-top:10px}
+.meta{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:22px 0}
+.meta div{padding:12px 18px 12px 0;margin-right:18px}
+.meta b{display:block;font-weight:500;font-size:17px}
+.gallery{display:flex;gap:10px;overflow-x:auto;margin:0 0 8px;scrollbar-width:none}
+.gallery img{height:150px;width:auto;border-radius:3px;flex:none}
+.body-w{max-width:720px;margin:0 auto}
+.sec{margin:30px 0 0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:6px}
+.sec-h h2{font-family:var(--display);font-size:26px;font-weight:600}
+.story{font-size:19px;line-height:1.6;color:var(--ink)}
+.scale{display:flex;gap:4px;align-items:center}
+.scale button{font-size:14px;padding:3px 10px;border:1px solid var(--line);border-radius:99px;color:var(--soft)}
+.scale button.on{border-color:var(--wine);color:var(--wine)}
+.ing-g{margin-top:14px}
+.ing-g .sc{display:block;margin-bottom:2px}
+.row{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px dotted var(--line);cursor:pointer;width:100%;text-align:left}
+.row .q{white-space:nowrap;color:var(--soft);font-variant-numeric:tabular-nums}
+.row.done{color:var(--muted);text-decoration:line-through}
+.row.done .q{color:var(--muted)}
+.step{border-bottom:1px solid var(--line);padding:18px 0}
+.step-h{display:flex;gap:14px;align-items:baseline;width:100%;text-align:left}
+.num{font-family:var(--display);font-size:28px;color:var(--terra);min-width:30px;line-height:1}
+.step-h h3{font-family:var(--display);font-size:22px;font-weight:600;flex:1;line-height:1.15}
+.step-h .t{font-size:14px;color:var(--muted);white-space:nowrap}
+.step-b{padding-left:44px;margin-top:8px}
+.step-b p{margin-top:8px}
+.aviso{margin-top:10px;padding:8px 12px;border-left:2px solid var(--wine);background:var(--paper);font-style:italic;font-size:16px}
+.step.done .step-h h3,.step.done .num{color:var(--muted);text-decoration:line-through}
+.check{margin-top:12px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--olive);border:1px solid var(--olive);padding:4px 12px;border-radius:99px}
+.step.done .check{background:var(--olive);color:var(--bg)}
+.prog{font-size:14px;color:var(--muted)}
+.reset{margin-top:26px;font-size:14px;color:var(--muted);text-decoration:underline}
+footer{max-width:1180px;margin:0 auto;padding:22px var(--pad) 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="mark" href="#">Pobre <i>Maria</i></a>
+    <span class="top-sp"></span>
+    <button class="icon-btn" id="sbtn" aria-label="Buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+  </div>
+  <div class="search" id="sbox"><input id="q" type="search" placeholder="Buscar receita ou ingrediente" autocomplete="off"></div>
+</header>
+
+<main>
+  <section id="home">
+    <div id="hero"></div>
+    <nav class="filters" id="filters"></nav>
+    <div class="grid" id="grid"></div>
+  </section>
+  <article id="detail"></article>
+</main>
+
+<footer><span>Família Marques Silva</span><span>Pobre Maria · v2</span></footer>
+
+<script src="receitas.js"></script>
+<script>
+// Fotos e histórias ficam aqui até a migração dos dados para um arquivo único
+const FOTOS={
+  "lasanha":["lasanha-1","lasanha-processo-1"],
+  "pao-brioche":["pao-brioche-1","pao-brioche-processo-1"],
+  "cuca-banana":["cuca-banana-1","cuca-banana-2"],
+  "torta-frutas":["torta-frutas-2","torta-frutas-1"],
+  "creme-brulee":["creme-brulee-1"],
+  "cinnamon-roll":["cinnamon-roll-1"],
+  "brownie":["brownie-1","brownie-processo-1"],
+  "crumble":["crumble-1"]
+};
+const HIST={};
+const DESTAQUE="lasanha";
+const CATS=[["todas","Todas"],["favoritas","Favoritas"],["panificacao","Panificação"],["confeitaria","Confeitaria"],["sobremesa","Sobremesa"],["parrilla","Parrilla"],["massas","Massas"]];
+const foto=(f)=>"../fotos/"+f+".jpg";
+const esc=(s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+let favs=[];
+try{favs=JSON.parse(localStorage.getItem("pm-favs")||"[]")}catch(e){}
+const saveFavs=()=>{try{localStorage.setItem("pm-favs",JSON.stringify(favs))}catch(e){}};
+const isFav=(id)=>favs.includes(id);
+
+let cat="todas", query="";
+const st={}; // estado do checklist por receita
+const S=(id)=>st[id]||(st[id]={steps:{},ings:{},mult:1});
+
+const ICON_HEART='<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>';
+
+function phHTML(r,big){
+  const f=FOTOS[r.id];
+  if(f) return `<img src="${foto(f[0])}" alt="${esc(r.titulo)}" loading="${big?"eager":"lazy"}">`;
+  return `<div class="ph-empty"><b>${esc(r.titulo[0])}</b><span>foto em breve</span></div>`;
+}
+
+function renderHome(){
+  const d=R.find(r=>r.id===DESTAQUE);
+  document.getElementById("hero").innerHTML=(query||cat!=="todas")?"":`
+    <a class="hero" href="#r/${d.id}">${phHTML(d,true)}
+      <div class="hero-txt"><span class="sc">Receita em destaque · ${esc(d.tag)}</span><h2>${esc(d.titulo)}</h2><p>${esc(d.callout)}</p></div>
+    </a>`;
+  document.getElementById("filters").innerHTML=CATS.map(([k,l])=>`<button class="chip${k===cat?" on":""}" data-c="${k}">${l}</button>`).join("");
+  const q=query.trim().toLowerCase();
+  let list=R.filter(r=>cat==="todas"?true:cat==="favoritas"?isFav(r.id):r.cat===cat);
+  if(q) list=list.filter(r=>(r.titulo+" "+r.desc+" "+r.etapas.map(e=>(e.ing||[]).map(i=>i[0]).join(" ")).join(" ")).toLowerCase().includes(q));
+  document.getElementById("grid").innerHTML=list.length?list.map(r=>`
+    <a class="card" href="#r/${r.id}">
+      <div class="ph">${phHTML(r)}${isFav(r.id)?`<span class="fav-dot">${ICON_HEART}</span>`:""}</div>
+      <span class="sc">${esc(r.tag)}</span><h3>${esc(r.titulo)}</h3><div class="t">${esc(r.tempo)}</div>
+    </a>`).join(""):`<p class="empty">${cat==="favoritas"&&!q?"Nenhuma favorita ainda. Toque no coração dentro de uma receita.":"Nada encontrado."}</p>`;
+}
+
+// Escala números da quantidade (gramas, unidades, frações); "a gosto" e "pitada" ficam iguais
+function scaleQty(q,m){
+  if(m===1) return q;
+  return q.replace(/(\d+)\/(\d+)|\d+(?:[.,]\d+)?/g,(t,a,b)=>{
+    let v=a?(+a/+b):parseFloat(t.replace(",","."));
+    v*=m;
+    return v>=10?String(Math.round(v)):String(Math.round(v*10)/10).replace(".",",");
+  });
+}
+
+function renderDetail(id){
+  const r=R.find(x=>x.id===id); if(!r){location.hash="";return}
+  const s=S(id), f=FOTOS[id]||[];
+  const total=r.etapas.length, done=Object.values(s.steps).filter(Boolean).length;
+  const ingGroups=r.etapas.filter(e=>e.ing).map((e,gi)=>`
+    <div class="ing-g"><span class="sc">${esc(e.nome)}</span>
+      ${e.ing.map((ig,ii)=>{const k=e.n+"-"+ii;return `<button class="row${s.ings[k]?" done":""}" data-ing="${k}"><span>${esc(ig[0])}</span><span class="q">${esc(scaleQty(ig[1],s.mult))}</span></button>`}).join("")}
+    </div>`).join("");
+  const steps=r.etapas.map((e,i)=>`
+    <div class="step${s.steps[i]?" done":""}">
+      <div class="step-h"><span class="num">${e.n}</span><h3>${esc(e.nome)}</h3><span class="t">${esc(e.t)}</span></div>
+      <div class="step-b">
+        ${e.ing?`<p class="prog">${e.ing.map(ig=>esc(ig[0])+" — "+esc(scaleQty(ig[1],s.mult))).join(" · ")}</p>`:""}
+        <p>${esc(e.body)}</p>
+        ${e.aviso?`<div class="aviso">${esc(e.aviso)}</div>`:""}
+        <button class="check" data-step="${i}">${s.steps[i]?"Feito":"Marcar etapa"}</button>
+      </div>
+    </div>`).join("");
+  document.getElementById("detail").innerHTML=`
+    <div class="d-hero">${phHTML(r,true)}
+      <a class="d-back" href="#">‹ Receitas</a>
+      <button class="d-fav${isFav(id)?" on":""}" id="fav" aria-label="Favorita">${ICON_HEART}</button>
+    </div>
+    <div class="d-head">
+      <span class="sc">${esc(r.tag)}</span>
+      <h1>${esc(r.titulo)}</h1>
+      <p class="callout">${esc(r.callout)}</p>
+      <p class="desc">${esc(r.desc)}</p>
+      <div class="meta">${r.meta.map(([l,v])=>`<div><span class="sc">${esc(l)}</span><b>${esc(v)}</b></div>`).join("")}<div><span class="sc">Tempo total</span><b>${esc(r.tempo)}</b></div></div>
+      ${f.length>1?`<div class="gallery">${f.slice(1).map(x=>`<img src="${foto(x)}" alt="" loading="lazy">`).join("")}</div>`:""}
+    </div>
+    <div class="body-w">
+      ${HIST[id]?`<section class="sec"><div class="sec-h"><h2>História do prato</h2></div><p class="story">${esc(HIST[id])}</p></section>`:""}
+      <section class="sec">
+        <div class="sec-h"><h2>Ingredientes</h2>
+          <div class="scale">${[0.5,1,1.5,2].map(m=>`<button data-m="${m}" class="${s.mult===m?"on":""}">${String(m).replace(".",",")}×</button>`).join("")}</div>
+        </div>
+        ${ingGroups}
+      </section>
+      <section class="sec">
+        <div class="sec-h"><h2>Preparo</h2><span class="prog">${done} de ${total} etapas</span></div>
+        ${steps}
+      </section>
+      <button class="reset" id="reset">Reiniciar checklist</button>
+    </div>`;
+}
+
+function route(){
+  const m=location.hash.match(/^#r\/(.+)$/);
+  if(m){document.body.classList.add("reading");renderDetail(decodeURIComponent(m[1]));window.scrollTo(0,0)}
+  else{document.body.classList.remove("reading");renderHome()}
+}
+
+document.addEventListener("click",e=>{
+  const c=e.target.closest("[data-c]"); if(c){cat=c.dataset.c;renderHome();return}
+  const id=(location.hash.match(/^#r\/(.+)$/)||[])[1]; if(!id) return;
+  const s=S(id);
+  const ig=e.target.closest("[data-ing]"); if(ig){s.ings[ig.dataset.ing]=!s.ings[ig.dataset.ing];ig.classList.toggle("done");return}
+  const sp=e.target.closest("[data-step]"); if(sp){s.steps[sp.dataset.step]=!s.steps[sp.dataset.step];const y=scrollY;renderDetail(id);scrollTo(0,y);return}
+  const mb=e.target.closest("[data-m]"); if(mb){s.mult=+mb.dataset.m;const y=scrollY;renderDetail(id);scrollTo(0,y);return}
+  if(e.target.closest("#fav")){favs=isFav(id)?favs.filter(x=>x!==id):[...favs,id];saveFavs();document.getElementById("fav").classList.toggle("on");return}
+  if(e.target.closest("#reset")){st[id]={steps:{},ings:{},mult:1};renderDetail(id)}
+});
+document.getElementById("sbtn").onclick=()=>{const b=document.getElementById("sbox");b.classList.toggle("open");if(b.classList.contains("open")){if(location.hash)location.hash="";document.getElementById("q").focus()}};
+document.getElementById("q").oninput=e=>{query=e.target.value;renderHome()};
+window.addEventListener("hashchange",route);
+route();
+</script>
+</body>
+</html>
