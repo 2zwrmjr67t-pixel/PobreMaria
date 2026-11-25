@@ -27,5 +27,5 @@ Sobremesa · ~45 min · 2 pessoas · Ferro fundido · **Status: em validação**
 
 ## Pendências
 - A fonte usa o açúcar duas vezes (macerar e caramelizar) com a mesma medida. É 1 col. sopa no total ou em cada momento?
-- A farofa não veio na fonte colada; mantida a do app (a antiga farofa A). A farofa B foi retirada.
+- Farofa única (a antiga A), mantida como estava no app. A farofa B foi retirada.
 - A fonte não diz como montar e assar o crumble (farofa sobre as frutas? volta ao forno?).

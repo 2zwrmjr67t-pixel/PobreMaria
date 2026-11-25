@@ -1,5 +1,5 @@
-# Polvo na Parrilla com Batatas ao Murro
-Parrilla · ~2h · Panela de pressão · **Status: em validação**
+# Polvo na Parrilla
+Parrilla · ~2h · Panela de pressão · **Status: validada (25/11/2026)**
 > Fogo alto, sem desculpa.
 
 ## Etapa 1 — Cozimento na pressão (8–10 min após pegar pressão)
@@ -27,7 +27,7 @@ Parrilla · ~2h · Panela de pressão · **Status: em validação**
 ## Etapa 3 — Parrilla
 1. Fogo alto, para caramelizar bem a superfície.
 
-## Pendências
-- Marinada sem quantidades, como combinado.
-- **Batatas ao murro:** a fonte não traz receita. O app tem uma versão (cozinhar, amassar, grelhar); manter ou tirar?
-- Tempo de grelha: o app tem 4–6 min por lado, que não está na fonte.
+## Notas
+- Marinada sem quantidades, a gosto.
+- Batatas ao murro retiradas.
+- O app mantém 4–6 min por lado na grelha (não está na fonte).

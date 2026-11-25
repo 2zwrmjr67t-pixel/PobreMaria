@@ -1,5 +1,5 @@
 # Torta de Frutas Vermelhas
-Confeitaria · ~3h30 · **Status: no app (água ajustada em 25/11/2026)**
+Confeitaria · ~3h30 · **Status: validada (25/11/2026)**
 > Trama de tiras, recheio que borbulha.
 
 ## Etapa 1 — Massa podre (15 min + 2h de geladeira)
@@ -36,10 +36,7 @@ Confeitaria · ~3h30 · **Status: no app (água ajustada em 25/11/2026)**
 
 ## Etapa 4 — Assar (30 min)
 1. Forno pré-aquecido a 180°C por 30 min.
-2. Servir com sorvete de baunilha.
+2. Servir com sorvete de baunilha ou ao gosto.
 
 ## Notas de conversão
 - Amido: 1 col. sopa ≈ 8 g [Inferência].
-
-## Pendências
-- A fonte termina em "Servir com sorvete de baunilha ou…" — faltou a segunda opção.
