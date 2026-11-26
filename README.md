@@ -11,6 +11,7 @@ Site: https://2zwrmjr67t-pixel.github.io/PobreMaria/
 index.html      ← site (layout editorial com fotos)
 receitas.js     ← dados das receitas exibidas no site
 fotos/          ← fotos das receitas (sem EXIF/GPS), <id>-1.jpg = capa
+videos/         ← clipes curtos (H.264 720p, mudos) + quadro de capa .jpg
 receitas/       ← cada receita em .md, padrão em receitas/_PADRAO.md
 v1/             ← versão anterior do site, guardada como referência
 ```

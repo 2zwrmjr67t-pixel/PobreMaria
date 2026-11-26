@@ -98,7 +98,8 @@ body.reading #detail{display:block}
 .meta b{display:block;font-weight:500;font-size:17px}
 .slides{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:pointer}
 .slides::-webkit-scrollbar{display:none}
-.slides img{flex:none;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
+.slides img,.slides video{flex:none;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
+.hero video,.d-hero > video{width:100%;height:100%;object-fit:cover;display:block}
 .dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:7px;pointer-events:none}
 .dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,253,248,.55)}
 .dots i.on{background:#FFFDF8}
@@ -166,19 +167,23 @@ const FOTOS={
   "lasanha":["lasanha-1","lasanha-2","lasanha-processo-1"],
   "pao-brioche":["pao-brioche-1","pao-brioche-processo-1"],
   "cuca-banana":["cuca-banana-1","cuca-banana-2"],
-  "torta-frutas":["torta-frutas-2","torta-frutas-3","torta-frutas-1"],
-  "creme-brulee":["creme-brulee-1"],
+  "torta-frutas":["v:torta-frutas","torta-frutas-2","torta-frutas-3","torta-frutas-1"],
+  "creme-brulee":["v:creme-brulee","creme-brulee-1"],
   "cinnamon-roll":["cinnamon-roll-1"],
-  "brownie":["brownie-1","brownie-processo-1"],
-  "crumble":["crumble-1","crumble-2"],
+  "brownie":["v:brownie","brownie-1","brownie-processo-1"],
+  "crumble":["v:crumble","crumble-1","crumble-2"],
   "chimichurri":["chimichurri-1"],
-  "costela":["costela-1","costela-processo-1"],
+  "costela":["v:costela","costela-1","costela-processo-1"],
+  "cuca-goiabada":["cuca-goiabada-1"],
   "medialunas":["medialunas-1","medialunas-2"]
 };
 const HIST={};
-const DESTAQUE="lasanha";
+const DESTAQUE="costela";
 const CATS=[["todas","Todas"],["panificacao","Panificação"],["confeitaria","Confeitaria"],["sobremesa","Sobremesa"],["parrilla","Parrilla"],["massas","Massas"]];
-const foto=(f)=>"fotos/"+f+".jpg";
+const isV=(f)=>f.startsWith("v:");
+const foto=(f)=>isV(f)?"videos/"+f.slice(2)+".jpg":"fotos/"+f+".jpg";
+const vid=(f,alt)=>`<video src="videos/${f.slice(2)}.mp4" poster="videos/${f.slice(2)}.jpg" muted autoplay loop playsinline preload="metadata" aria-label="${alt}"></video>`;
+const media=(f,alt,eager)=>isV(f)?vid(f,alt):`<img src="${foto(f)}" alt="${alt}" loading="${eager?"eager":"lazy"}">`;
 const esc=(s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 
@@ -189,14 +194,14 @@ const S=(id)=>st[id]||(st[id]={steps:{},ings:{},mult:1,ingOpen:false});
 
 function phHTML(r,big){
   const f=FOTOS[r.id];
-  if(f) return `<img src="${foto(f[0])}" alt="${esc(r.titulo)}" loading="${big?"eager":"lazy"}">`;
+  if(f){const c=f.find(x=>!isV(x))||f[0];return `<img src="${foto(c)}" alt="${esc(r.titulo)}" loading="${big?"eager":"lazy"}">`;}
   return `<div class="ph-empty"><b>${esc(r.titulo[0])}</b><span>foto em breve</span></div>`;
 }
 
 function renderHome(){
   const d=R.find(r=>r.id===DESTAQUE);
   document.getElementById("hero").innerHTML=(query||cat!=="todas")?"":`
-    <a class="hero" href="#r/${d.id}">${phHTML(d,true)}
+    <a class="hero" href="#r/${d.id}">${(FOTOS[d.id]||[]).some(isV)?vid(FOTOS[d.id].find(isV),esc(d.titulo)):phHTML(d,true)}
       <div class="hero-txt"><span class="sc">Receita em destaque · ${esc(d.tag)}</span><h2>${esc(d.titulo)}</h2><p>${esc(d.callout)}</p></div>
     </a>`;
   document.getElementById("filters").innerHTML=CATS.map(([k,l])=>`<button class="chip${k===cat?" on":""}" data-c="${k}">${l}</button>`).join("");
@@ -239,7 +244,7 @@ function renderDetail(id){
       </div>
     </div>`).join("");
   document.getElementById("detail").innerHTML=`
-    <div class="d-hero">${f.length>1?`<div class="slides" id="slides">${f.map((x,i)=>`<img src="${foto(x)}" alt="${esc(r.titulo)} — foto ${i+1}" loading="${i?"lazy":"eager"}">`).join("")}</div><div class="dots">${f.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join("")}</div>`:phHTML(r,true)}
+    <div class="d-hero">${f.length>1?`<div class="slides" id="slides">${f.map((x,i)=>media(x,esc(r.titulo)+" — "+(i+1),!i)).join("")}</div><div class="dots">${f.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join("")}</div>`:(f.length===1&&isV(f[0])?vid(f[0],esc(r.titulo)):phHTML(r,true))}
       <a class="d-back" href="#">‹ Receitas</a>
     </div>
     <div class="d-head">
