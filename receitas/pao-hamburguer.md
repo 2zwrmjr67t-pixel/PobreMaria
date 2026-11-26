@@ -43,10 +43,10 @@ Pão da casa para hambúrguer na parrilla, na linha do pãozinho do Madero.
 ## Etapa 5 — Preaquecer, forno a gás (30 min)
 1. 230 °C ou o máximo, grade do meio ou um nível acima.
 
-## Etapa 6 — Assar (8 min coberto + 6–8 min)
+## Etapa 6 — Assar (8 min coberto + 6 min dourando)
 1. Duas assadeiras sobrepostas. Corte em cruz raso (~0,5 cm); se já estiver muito inflado, não cortar.
 2. Borrifar água e cobrir com bacia de metal virada, sem encostar. Assar 8 min.
-3. Tirar a bacia com luva e assar até dourar, olhando a partir de 6 min.
+3. Tirar a bacia com luva e dourar por mais 6 min (total no forno: 14 min).
 4. Esfriar na grade.
 
 ## 1º teste — 26/11/2026
